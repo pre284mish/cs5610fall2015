@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .centered {
+            width: 600px;
+            margin: auto;
+            text-align: justify;
+        }
+
+        .navbar-custom {
+            background-color: #CDCDCD;
+         }
+
+         .marginFix {
+            margin-top:50px;
+         }
+
+         .alignCenter {
+            text-align: center;
+         }
+
+         .top-buffer {
+            margin-top:0px;
+          }
+
+         .top-margin {
+            margin-top:40px;
+          }
+
+          .btnregister-width {
+            width: 150px;
+          }
+
+          .labelsignup-left {
+            margin-left:-30px;
+          }
+
+          .btnregister-left {
+            margin-left:25px;
+          }
+
+         .list-group-item {
+            vertical-align: center;
+            height: 100%;
+            line-height:300%;
+            vertical-align: center;
+          }
+
+          .labellogin-left {
+            margin-left: -80px;
+          }
+
+          plus_position_left {
+            margin-left:25px;
+          }
+
+          .glyphicon-plus {
+            font-size: 2.2em;
+          }
+
+          .glyphicon-ok {
+            font-size: 2.2em;
+          }
+
+          .glyphicon-remove {
+            font-size: 2.2em;
+          }
+
+          .glyphicon-pencil {
+            font-size: 2.2em;
+          }
+
+          .glyphicon-align-justify{
+            font-size: 2.2em;
+          }
+
+          .align_glyphicon{
+            margin-left: 70px;
+            margin-top: 20px;
+          }
+
+          .form-field{
+            margin-left: -70px;
+          }
+
+          hr {
+               display: block;
+               margin-top: 0.5em;
+               margin-bottom: 0.5em;
+               margin-left: auto;
+               margin-right: auto;
+               border-style: inset;
+               border-width: 1px;
+           }
+
+    </style>
+</head>
+<body>
+
+</body>
+
+</html>
