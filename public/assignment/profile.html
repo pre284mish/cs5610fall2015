@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <title>Profile</title>
+    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
 
-    <!-- <script type="text/javascript" src="../dist/js/bootstrapValidator.js"></script>
-     <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/>
-     -->
+    <!--styles using bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-custom navbar-fixed-top">
+<!-- the top navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
 
         <div class="navbar-header">
@@ -45,6 +53,7 @@
             </div>
         </div>
 
+        <!-- the side navigation bar-->
         <div class="col-sm-2 sidebar sidebar-style-padding">
             <ul class="nav nav-sidebar navbar-custom list-group-item text-center">
                 <li><a href="home.html"><h4>Home</h4></a></li>
@@ -61,12 +70,7 @@
 
             <form class="form-horizontal" role="form">
 
-                <div class="form-group top-buffer">
-                    <label class="control-label  labelsignup-left "><h3>Your Profile</h3></label>
-                    <div class="col-sm-4">
-
-                    </div>
-                </div>
+                <h2 class="page-header">Your Profile</h2>
 
                 <div class="form-group top-margin">
                     <label class="control-label col-sm-3">UserName</label>
@@ -85,14 +89,14 @@
                 <div class="form-group top-margin">
                     <label class="control-label col-sm-3" for="pwd">First Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="">
+                        <input type="text" class="form-control" id="" placeholder="Enter your first name">
                     </div>
                 </div>
 
                 <div class="form-group top-margin">
                     <label class="control-label col-sm-3" for="pwd">Last Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="">
+                        <input type="text" class="form-control" id="" placeholder="Enter your last name">
                     </div>
                 </div>
 
@@ -107,7 +111,7 @@
 
                 <div class="form-group top-margin ">
                     <div class="col-sm-offset-3  col-sm-3">
-                        <button type="submit" class="btn btn-primary btnregister-width btnregister-left active">Register</button>
+                        <a href="profile.html" class="btn btn-primary btnregister-width btnregister-left active" role="button">Update</a>
                     </div>
                 </div>
             </form>
