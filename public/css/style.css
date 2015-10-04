@@ -58,28 +58,38 @@
           }
 
           .glyphicon-plus {
-            font-size: 2.2em;
+            font-size: 1.5em;
           }
 
           .glyphicon-ok {
-            font-size: 2.2em;
+            font-size: 1.5em;
           }
 
           .glyphicon-remove {
-            font-size: 2.2em;
+            font-size: 1.5em;
           }
 
           .glyphicon-pencil {
-            font-size: 2.2em;
+            font-size: 1.5em;
           }
 
           .glyphicon-align-justify{
-            font-size: 2.2em;
+            font-size: 1.5em;
           }
 
           .align_glyphicon{
             margin-left: 70px;
-            margin-top: 20px;
+            margin-top: 30px;
+          }
+
+          .align_glyphicon_first{
+            margin-left:70px;
+            margin-top: 70px;
+
+          }
+
+          .align-formaker-up{
+            margin-top:-20px;
           }
 
           .form-field{
@@ -94,6 +104,14 @@
                margin-right: auto;
                border-style: inset;
                border-width: 1px;
+           }
+
+           .sidebar-style-padding{
+               padding-left: 1px;
+               padding-right: 1px;
+               padding-top: 10px;
+               height:275px;
+               width:182px;
            }
 
     </style>
