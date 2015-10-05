@@ -89,7 +89,7 @@
           }
 
           .form-field{
-            margin-left: -70px;
+            margin-left: -100px;
           }
 
           .welcome-left-margin {
@@ -112,11 +112,16 @@
             padding-right: 1px;
             padding-top: 10px;
             height:275px;
-            width:182px;
+            width:170px;
            }
 
            .fix-position {
            position:fixed;
+           width:170px;
+           }
+
+           .table-config{
+            width:1000px;
            }
 
     </style>
