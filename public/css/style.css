@@ -115,6 +115,10 @@
             width:182px;
            }
 
+           .fix-position {
+           position:fixed;
+           }
+
     </style>
 </head>
 <body>
