@@ -97,6 +97,12 @@
             margin-right:-90px;
           }
 
+          .welcome-left-margin-index {
+                      margin-left: -130px;
+                      margin-right:-90px;
+                          width: 950px
+                    }
+
           hr {
             display: block;
             margin-top: 0.5em;
@@ -107,13 +113,22 @@
             border-width: 1px;
            }
 
-           .sidebar-style-padding {
+           .sidebar-style-padding-index {
             padding-left: 1px;
             padding-right: 1px;
             padding-top: 10px;
             height:275px;
             width:170px;
+            margin-left: -15px;
            }
+
+           .sidebar-style-padding {
+                       padding-left: 1px;
+                       padding-right: 1px;
+                       padding-top: 10px;
+                       height:275px;
+                       width:170px;
+                      }
 
            .fix-position {
            position:fixed;
@@ -123,6 +138,13 @@
            .table-config{
             width:1000px;
            }
+
+
+
+           .fix-position_dynamic {
+                      width:170px;
+                      margin-left:-1000;
+                      }
 
     </style>
 </head>
