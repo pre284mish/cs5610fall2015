@@ -5,6 +5,7 @@
 
 
     function Configure($routeProvider) {
+
             $routeProvider
                         .when("/home",{
                             templateUrl: "home/home.view.html"
@@ -13,14 +14,13 @@
                             templateUrl: "register.html"
                         })
                         .when("/login", {
-                            templateUrl: "login.html",
-                            controller: "CourseController"
+                            templateUrl: "login/login.view.html",
                         })
                         .when("/courseEdit/:count", {
                             templateUrl: "courseEdit.html",
                             controller: "CourseEditController"
                         })
-                        .when("/login", {
+                        .when("/loginwe", {
                             templateUrl: "login.html"
                         })
                         .otherwise({

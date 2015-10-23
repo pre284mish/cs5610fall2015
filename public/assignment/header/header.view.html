@@ -3,11 +3,7 @@
 <head>
     <title>Header</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
 
-    <!--styles using bootstrap css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../css/style.css">
 
@@ -23,8 +19,8 @@
 
         <div  class="container">
             <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
-                <li><a href="register.html"><h5>Register</h5></a></li>
-                <li><a href="login.html"><h5>Login</h5></a></li>
+                <li ng-class = "{'active' : $location.url().indexOf('register') != -1}"><a href="#/register"><h5>Register</h5></a></li>
+                <li ng-class = "{'active' : $location.url().indexOf('login') != -1}"><a href="#/login"><h5>Login</h5></a></li>
                 <li><a href=""><h5>Username</h5></a></li>
                 <li><a href=""><h5>Logout</h5></a></li>
             </ul>
