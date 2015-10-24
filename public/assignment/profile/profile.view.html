@@ -15,35 +15,35 @@
         <div class="form-group top-margin">
             <label class="control-label col-sm-3">UserName</label>
             <div class="col-sm-4">
-                <input type="username" class="form-control" id="username" placeholder="Enter your username">
+                <input ng-model="currentUser.username" type="username" class="form-control" id="username" placeholder="Enter your username">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="pwd">Password</label>
             <div class="col-sm-4">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                <input ng-model="currentUser.password" type="password" class="form-control" id="pwd" placeholder="Enter password">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="pwd">First Name</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="" placeholder="Enter your first name">
+                <input ng-model="currentUser.firstName" type="text" class="form-control" id="firstName" placeholder="Enter your first name">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="pwd">Last Name</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="" placeholder="Enter your last name">
+                <input ng-model="currentUser.lastName" type="text" class="form-control" id="lastName" placeholder="Enter your last name">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="email">Email</label>
             <div class="col-sm-4">
-                <input type="email" class="form-control" id="email" placeholder="e.g. email@hotmail.com">
+                <input ng-model="currentUser.email" type="email" class="form-control" id="email" placeholder="e.g. email@hotmail.com">
             </div>
         </div>
 
@@ -51,7 +51,7 @@
 
         <div class="form-group top-margin ">
             <div class="col-sm-offset-3  col-sm-3">
-                <a href="profile.html" class="btn btn-primary btnregister-width btnregister-left active" role="button">Update</a>
+                <button ng-click="update()" type="submit" class="btn btn-primary btnregister-width btnregister-left active" role="button">Update</button>
             </div>
         </div>
     </form>
