@@ -9,9 +9,10 @@
     <div class="container">
 
         <h2 class="page-header">Forms</h2>
+        {{forms}}
         <ul class="nav nav-tabs">
-            <li class="ng-scope active">
-                <a href="forms.html" class="ng-binding"> Forms </a> </li>
+            <li ng-class="{'active': $location.url().indexOf('form') != -1 }">
+                <a href="#/form" class="ng-binding"> Forms </a> </li>
             <!--<li><a href="form-fields.html">Fields</a></li>-->
         </ul>
 
@@ -19,10 +20,10 @@
         <table class="table table-bordered table-striped top-margin table-config">
             <thead>
             <tr>
-                <th class="col-md-2">
+                <th class="col-md-2 col1-width">
                     <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Form Name
                 </th>
-                <th class="col-md-1">
+                <th class="col-md-1 col2-width">
                     <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Action
                 </th>
             </tr>
@@ -30,46 +31,25 @@
             <tbody>
             <tr>
                 <td>
-                    <input type="text" class="input-sm form-control"id="user_name" name="user_name" placeholder="name">
+                    <input ng-model="form.formName" type="text" class="input-sm form-control" id="form_name" name="form_name" placeholder="name">
                 </td>
                 <td>
-                    <a href="">
+                    <a ng-click="addForm()">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </a>
-                    <a href="">
+                    <a ng-click="updateForm()">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </a>
                 </td>
             </tr>
-            <tr>
-                <td>Registration Form</td>
+
+            <tr ng-repeat="form in forms">
+                <td> {{form.formName}} </td>
                 <td>
-                    <a href="">
+                    <a ng-click="deleteForm($index)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </a>
-                    <a href="">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>Contact List</td>
-                <td>
-                    <a href="">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </a>
-                    <a href="">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>To Do List</td>
-                <td>
-                    <a href="">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </a>
-                    <a href="">
+                    <a ng-click="selectForm($index)">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
                 </td>

@@ -31,7 +31,7 @@
         }
 
         function findAllUsers() {
-            return users;
+            callback(users);
         }
 
         function findUserByUsernameAndPassword(username, password, callback) {
@@ -56,6 +56,7 @@
                     users.splice(user, 1);
                 }
             }
+            callback(users);
         }
 
         function updateUser(userId, userObj, callback){
