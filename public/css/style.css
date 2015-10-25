@@ -14,7 +14,7 @@
             background-color: #CDCDCD;
          }
 
-         .nav-sidebar .navbar-custom > .active > a,
+          .navbar-custom > .active > a,
          .navbar-custom > .active > a:hover,
          .navbar-custom > .active > a:focus {
            color: #fff;
