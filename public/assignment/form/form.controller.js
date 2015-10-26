@@ -48,12 +48,12 @@
         }
 
         $scope.selectForm = function(index) {
-            $scope.forms = $scope.forms[index];
+            //$scope.forms = $scope.forms[index];
         }
 
-        function selectForm(response) {
-            $scope.currentform = response;
-        }
+//        function selectForm(response) {
+//            $scope.currentform = response;
+//        }
 
 
     }
