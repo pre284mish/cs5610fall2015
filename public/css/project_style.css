@@ -128,3 +128,7 @@
     .move-table-left{
         padding-right: 70px;
     }
+
+    .remove-left-padding{
+        padding-left: 0px;
+    }

@@ -147,3 +147,7 @@ body {
 .sidebar_width_project{
     width: 250px;
 }
+
+.adjust-height{
+    height: 640px;
+}
