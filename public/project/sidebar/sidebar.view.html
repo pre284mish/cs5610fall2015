@@ -1,0 +1,52 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<br>
+
+<div class="nav-side-menu">
+    <!--<div class="brand">Brand Logo</div>-->
+    <!--<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>-->
+<br>
+    <br>
+    <br>
+    <br>
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a href="#">
+                    <i class="fa fa-globe fa-lg"></i> Categories
+                </a>
+            </li>
+
+            <li  data-toggle="collapse" data-target="#maintenance" class="collapsed">
+                <a href=""><i class="fa fa-wrench fa-lg"></i> Maintenance <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="maintenance">
+                <li><a ng-href="#/lawn_mowing/{{role}}">Lawn Mowing</a></li>
+                <li class=""><a href="#">Snow Shoveling</a></li>
+                <li><a href="#">Cleaning</a></li>
+            </ul>
+
+
+            <li data-toggle="collapse" data-target="#tutoring" class="collapsed">
+                <a href="#"><i class="fa fa-book fa-lg"></i> Tutoring <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="tutoring">
+                <li>Math</li>
+                <li>Science</li>
+                <li>Social Studies</li>
+                <li>Languages</li>
+            </ul>
+
+
+            <li data-toggle="collapse" data-target="#new" class="collapsed">
+                <a href="#"><i class="fa fa-ambulance fa-lg"></i> Caretaker <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="new">
+                <li>Female</li>
+                <li>Male</li>
+            </ul>
+
+
+        </ul>
+    </div>
+</div>
