@@ -1,20 +1,35 @@
-var forms = require("../form.mock.json");
+var forms = require("./form.mock.json");
 
 module.exports = function(app){
 
     var api = {
         createForm : createForm,
         findAllForms : findAllForms,
-        findByFormId : findByFormId
+        findByFormId : findByFormId,
         updateForm : updateForm,
         removeForm : removeForm,
         findFormByTitle : findFormByTitle,
     };
     return api;
 
-
-    function createForm(userId, form){
-        form.userId = userId;
+    function generateFormId() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+        }
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+    }
+    function createForm(userId, formObj){
+        var form = {
+            id : generateFormId(),
+            title : formObj.title,
+            userId : userId
+        }
+        console.log("while adding: "+ form.id);
+        console.log("while adding id: " + form.title);
+        console.log("while adding user: " + form.userId);
         forms.push(form);
         return form;
     }
@@ -26,6 +41,7 @@ module.exports = function(app){
                 formForUser.push(forms[i]);
             }
         }
+        return formForUser;
     }
 
     function findByFormId(formId){
@@ -46,12 +62,14 @@ module.exports = function(app){
     }
 
     function removeForm(formId){
+    console.log("inside form.model" + formId);
         for(var i in forms){
-            if(forms[i].formId == formId){
+
+            if(forms[i].id == formId){
+                console.log("inside if of form.model");
                 forms.splice(i, 1);
             }
         }
-        return forms;
     }
 
     function findFormByTitle(formTitle){

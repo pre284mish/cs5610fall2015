@@ -28,8 +28,8 @@
                         })
                         .when("/form", {
                             templateUrl: "views/form/form.view.html",
-                            controller: "FormController"
-//                            controllerAs: "model"
+                            controller: "FormController",
+                            controllerAs: "model"
                         })
                         .otherwise({
                             redirectTo: "/home"

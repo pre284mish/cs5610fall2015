@@ -2,12 +2,12 @@ var model = require("../models/user.model.js")();
 
 module.exports = function(app){
 
-    app.get("/api/assignment/client/user", findAllUsers);
-    app.get("/api/assignment/client/user/id=:id", findUserById);
-    app.get("/api/assignment/client/user/username=:username&password=:password", findUserByUsernameAndPassword);
-    app.post("/api/assignment/client/user/", createUser);
-    app.delete("/api/assignment/client/user/:id", deleteUserById);
-    app.put("/api/assignment/client/user/id=:id", updateUser);
+    app.get("/api/assignment/user/", findAllUsers);
+    app.get("/api/assignment/user/id=:id", findUserById);
+    app.get("/api/assignment/user?username=:username&password=:password", findUserByUsernameAndPassword);
+    app.post("/api/assignment/user/", createUser);
+    app.delete("/api/assignment/user/:id", deleteUserById);
+    app.put("/api/assignment/user/id=:id", updateUser);
 
 
 

@@ -18,14 +18,5 @@
                     })
 
         }
-
-//        $scope.register = function(){
-//                    UserService.createUser($scope.newUser, createNewUser);
-//
-//                function createNewUser(user){
-//                    $rootScope.currentUser = user;
-//                    $location.url("/profile");
-//                }
-//        }
     }
 })();

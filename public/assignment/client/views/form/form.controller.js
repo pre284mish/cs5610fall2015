@@ -4,57 +4,53 @@
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController($scope, $rootScope, $location, UserService, FormService) {
+    function FormController($scope, $rootScope, UserService, FormService) {
 
 
-        // Get all the forms for a user.
-       FormService.findAllFormsForUser($rootScope.currentUser.id, getForms);
+        var model = this;
+        model.addForm = addForm;
+        model.updateForm = updateForm;
+        model.deleteForm = deleteForm;
+//        model.selectForm = selectForm;
 
-        //Assign all the forms for a user to $scope.$forms
-        function getForms(userForms){
-            $scope.forms = userForms;
+
+        function addForm(){
+            console.log("form:" + $rootScope.currentUserId);
+            var userId = $rootScope.currentUserId;
+            var formObj = {title: model.formName};
+            FormService.createFormForUser(userId, formObj)
+                    .then(function(form){
+                          model.forms = form;
+                          updateModel($rootScope.currentUserId);
+                    });
+        }
+
+        function updateModel(userId) {
+            console.log("FormsUserId:" + userId);
+            FormService.findAllFormsForUser(userId)
+                           .then(function(forms){
+                           console.log("All the forms:"+forms);
+                               model.forms = forms;
+                            })
 
         }
 
-
-        $scope.addForm = function(){
-            var formObj = {userId: $rootScope.currentUser.id, formName: $scope.form.formName};
-            FormService.createFormForUser($rootScope.currentUser.id, formObj, addForm)
-        }
-
-        function addForm(form){
-//            var newFormOfUser = {formName:form.formName, formId:};
-            $scope.forms.push(form);
+        function updateForm(){
+            var formObj = {userId: $rootScope.currentUser.id, title: model.form.formName};
+            FormService.createFormForUser(formObj)
+                    .then(function(form){
+                        model.currentForm = form;
+                    });
         }
 
 
-        $scope.updateForms = function(){
-            FormService.updateFormById($rootScope.formId, formObj, updateform);
-        }
-
-        function updateform(form){
-            $scope.forms = form;
-        }
-
-        $scope.deleteForm = function(index){
-            var currForm = $scope.forms[index];
-            FormService.deleteFormById(currForm.formId, deleteFormByIndex);
-        }
-
-        function deleteFormByIndex(form){
-
-            var index = $scope.forms.indexOf(form);
-            $scope.forms.splice(index, 1);
-        }
-
-        $scope.selectForm = function(index) {
-            //$scope.forms = $scope.forms[index];
-        }
-
-//        function selectForm(response) {
-//            $scope.currentform = response;
-//        }
-
+        function deleteForm(formId) {
+             console.log("delete client controller" + formId);
+             FormService.deleteFormById(formId)
+                        .then(function(form){
+                            updateModel($rootScope.currentUserId);
+                        });
+         }
 
     }
 })();
