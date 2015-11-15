@@ -160,6 +160,19 @@
                 width:80px;
             }
 
+            .align-field-new-field{
+                width: 460px;
+                margin-top: 5px;
+            }
+
+            .bottom-padding-field{
+                padding-bottom: 150px;
+            }
+
+            .padding-hr{
+                padding-right:200px;
+            }
+
     </style>
 </head>
 <body>

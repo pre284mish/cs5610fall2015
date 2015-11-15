@@ -31,6 +31,11 @@
                             controller: "FormController",
                             controllerAs: "model"
                         })
+                        .when("/field", {
+                            templateUrl: "views/field/field.view.html"
+//                            controller: "FieldsController"
+//                            controllerAs: "model"
+                        })
                         .otherwise({
                             redirectTo: "/home"
                         });
