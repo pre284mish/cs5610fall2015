@@ -11,32 +11,32 @@
     <form class="form-horizontal" role="form">
 
         <h2 class="page-header">Register</h2>
-
+{{model.allUsers}}
         <div class="form-group top-margin">
             <label class="control-label col-sm-3">Username</label>
             <div class="col-sm-4">
-                <input ng-model="newUser.username" type="username" class="form-control" id="username" placeholder="Enter your username">
+                <input ng-model="model.newUser.username" type="username" class="form-control" id="username" placeholder="Enter your username">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="pwd">Password</label>
             <div class="col-sm-4">
-                <input ng-model="newUser.password" type="password" class="form-control" id="pwd" placeholder="Enter password">
+                <input ng-model="model.newUser.password" type="password" class="form-control" id="pwd" placeholder="Enter password">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="pwd">Verify Password</label>
             <div class="col-sm-4">
-                <input ng-model="newUser.password_again" type="password" class="form-control" id="pwd" placeholder="Enter password again">
+                <input ng-model="model.newUser.password_again" type="password" class="form-control" id="pwd" placeholder="Enter password again">
             </div>
         </div>
 
         <div class="form-group top-margin">
             <label class="control-label col-sm-3" for="email">Email</label>
             <div class="col-sm-4">
-                <input ng-model="newUser.email" type="email" class="form-control" id="email" placeholder="e.g. email@hotmail.com">
+                <input ng-model="model.newUser.email" type="email" class="form-control" id="email" placeholder="e.g. email@hotmail.com">
             </div>
         </div>
 
@@ -44,7 +44,7 @@
 
         <div class="form-group top-margin ">
             <div class="col-sm-offset-3  col-sm-3">
-                <button ng-click="register()" type="submit" class="btn btn-primary btnregister-width btnregister-left active">Register</button>
+                <button ng-click="model.register()" type="submit" class="btn btn-primary btnregister-width btnregister-left active">Register</button>
             </div>
         </div>
     </form>

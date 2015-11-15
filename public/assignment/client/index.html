@@ -10,12 +10,12 @@
 
     <!--<script src="guid.js"></script>-->
 
-    <script src="./header/header.controller.js"></script>
-    <script src="./sidebar/sidebar.controller.js"></script>
-    <script src="./login/login.controller.js"></script>
-    <script src="./profile/profile.controller.js"></script>
-    <script src="./register/register.controller.js"></script>
-    <script src="./form/form.controller.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/sidebar/sidebar.controller.js"></script>
+    <script src="views/login/login.controller.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="views/register/register.controller.js"></script>
+    <script src="views/form/form.controller.js"></script>
 
     <script src="./service/UserService.js"></script>
     <script src="./service/FormService.js"></script>
@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div ng-include="'header/header.view.html'"></div>
+            <div ng-include="'views/header/header.view.html'"></div>
         </div>
 
     </div>
@@ -35,7 +35,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3">
-            <div ng-include=" 'sidebar/sidebar.view.html' "></div>
+            <div ng-include=" 'views/sidebar/sidebar.view.html' "></div>
         </div>
         <div class="col-sm-9" ng-view>
 
