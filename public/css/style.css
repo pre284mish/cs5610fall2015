@@ -1,182 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-        .centered {
-            width: 600px;
-            margin: auto;
-            text-align: justify;
-        }
-
-        .navbar-custom {
-            background-color: #CDCDCD;
-         }
-
-          .navbar-custom > .active > a,
-         .navbar-custom > .active > a:hover,
-         .navbar-custom > .active > a:focus {
-           color: #fff;
-           background-color: #428bca;
-         }
-
-         .marginFix {
-            margin-top:50px;
-         }
-
-         .alignCenter {
-            text-align: center;
-         }
-
-         .top-buffer {
-            margin-top:0px;
-          }
-
-         .top-margin {
-            margin-top:40px;
-          }
-
-          .btnregister-width {
-            width: 150px;
-          }
-
-          .btnregister-left {
-            margin-left:60px;
-          }
-
-         .list-group-item {
-            vertical-align: center;
-            height: 100%;
-            line-height:300%;
-            vertical-align: center;
-          }
-
-          .labellogin-left {
-            margin-left: -80px;
-          }
-
-          plus_position_left {
-            margin-left:25px;
-          }
-
-          .glyphicon-plus {
-            font-size: 1.5em;
-          }
-
-          .glyphicon-ok {
-            font-size: 1.5em;
-          }
-
-          .glyphicon-remove {
-            font-size: 1.5em;
-          }
-
-          .glyphicon-pencil {
-            font-size: 1.5em;
-          }
-
-          .glyphicon-align-justify{
-            font-size: 1.5em;
-          }
-
-          .align_glyphicon{
-            margin-left: 70px;
-            margin-top: 30px;
-          }
-
-          .align_glyphicon_first{
-            margin-left:70px;
-            margin-top: 70px;
-
-          }
-
-          .align-formaker-up{
-            margin-top:-20px;
-          }
-
-          .form-field{
-                margin-left: -100px;
-          }
-
-          .welcome-left-margin {
-                margin-left: 50px;
-                margin-right:-90px;
-          }
-
-          .welcome-left-margin-index {
-                  margin-left: -130px;
-                  margin-top: 80px;
-                  margin-right:-90px;
-                  width: 950px
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .centered {
+                width: 600px;
+                margin: auto;
+                text-align: justify;
             }
 
-          hr {
-                display: block;
-                margin-top: 0.5em;
-                margin-bottom: 0.5em;
-                margin-left: auto;
-                margin-right: auto;
-                border-style: inset;
-                border-width: 1px;
-           }
+            .navbar-custom {
+                background-color: #CDCDCD;
+             }
 
-           .sidebar-style-padding-index {
-                padding-left: 1px;
-                padding-right: 1px;
-                padding-top: 10px;
-                height:275px;
-                width:170px;
-                margin-left: -15px;
-           }
+              .navbar-custom > .active > a,
+             .navbar-custom > .active > a:hover,
+             .navbar-custom > .active > a:focus {
+               color: #fff;
+               background-color: #428bca;
+             }
 
-           .sidebar-style-padding {
-               padding-left: 1px;
-               padding-right: 1px;
-               padding-top: 10px;
-               height:275px;
-               width:170px;
-          }
+             .marginFix {
+                margin-top:50px;
+             }
 
-           .fix-position {
-                position:fixed;
-                width:170px;
-           }
+             .alignCenter {
+                text-align: center;
+             }
 
-           .table-config{
-                width:800px;
-           }
+             .top-buffer {
+                margin-top:0px;
+              }
 
-           .fix-position_dynamic {
-                width:170px;
-                margin-left:-1000;
-           }
+             .top-margin {
+                margin-top:40px;
+              }
 
-            .col1-width{
-                width:588px;
-            }
+              .btnregister-width {
+                width: 150px;
+              }
 
-            .col2-width{
-                width:80px;
-            }
+              .btnregister-left {
+                margin-left:60px;
+              }
 
-            .align-field-new-field{
-                width: 460px;
-                margin-top: 5px;
-            }
+             .list-group-item {
+                vertical-align: center;
+                height: 100%;
+                line-height:300%;
+                vertical-align: center;
+              }
 
-            .bottom-padding-field{
-                padding-bottom: 150px;
-            }
+              .labellogin-left {
+                margin-left: -80px;
+              }
 
-            .padding-hr{
-                padding-right:200px;
-            }
+              plus_position_left {
+                margin-left:25px;
+              }
 
-    </style>
-</head>
-<body>
+              .glyphicon-plus {
+                font-size: 1.5em;
+              }
 
-</body>
+              .glyphicon-ok {
+                font-size: 1.5em;
+              }
 
+              .glyphicon-remove {
+                font-size: 1.5em;
+              }
+
+              .glyphicon-pencil {
+                font-size: 1.5em;
+              }
+
+              .glyphicon-align-justify{
+                font-size: 1.5em;
+              }
+
+              .align_glyphicon{
+                margin-left: 70px;
+                margin-top: 30px;
+              }
+
+              .align_glyphicon_first{
+                margin-left:70px;
+                margin-top: 70px;
+
+              }
+
+              .align-formaker-up{
+                margin-top:-20px;
+              }
+
+              .form-field{
+                    margin-left: -100px;
+              }
+
+              .welcome-left-margin {
+                    margin-left: 50px;
+                    margin-right:-90px;
+              }
+
+              .welcome-left-margin-index {
+                      margin-left: -130px;
+                      margin-top: 80px;
+                      margin-right:-90px;
+                      width: 950px
+                }
+
+              hr {
+                    display: block;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-style: inset;
+                    border-width: 1px;
+               }
+
+               .sidebar-style-padding-index {
+                    padding-left: 1px;
+                    padding-right: 1px;
+                    padding-top: 10px;
+                    height:275px;
+                    width:170px;
+                    margin-left: -15px;
+               }
+
+               .sidebar-style-padding {
+                   padding-left: 1px;
+                   padding-right: 1px;
+                   padding-top: 10px;
+                   height:275px;
+                   width:170px;
+              }
+
+               .fix-position {
+                    position:fixed;
+                    width:170px;
+               }
+
+               .table-config{
+                    width:800px;
+               }
+
+               .fix-position_dynamic {
+                    width:170px;
+                    margin-left:-1000;
+               }
+
+                .col1-width{
+                    width:588px;
+                }
+
+                .col2-width{
+                    width:80px;
+                }
+
+                .align-field-new-field{
+                    width: 460px;
+                    margin-top: 5px;
+                }
+
+                .bottom-padding-field{
+                    padding-bottom: 150px;
+                }
+
+                .padding-hr{
+                    padding-right:200px;
+                }
+
+        </style>
+    </head>
 </html>

@@ -14,21 +14,11 @@
             console.log(model.username);
             UserService.findUserByUsernameAndPassword(model.username, model.password)
                     .then(function(user){
-                        $rootScope.currentUser = user;
+                        console.log("login user: "+ user)
+                        $rootScope.currentUserId = user.id;
                         $location.url("/profile");
                     })
         }
 
-
-//        $scope.login = function(){
-//                    UserService.findUserByUsernameAndPassword($scope.username, $scope.password, userExists);
-////                    console.log($scope.username);
-////                    console.log($scope.password);
-//
-//                function userExists(user){
-//                    $rootScope.currentUser = user;
-//                    $location.url("/profile");
-//                }
-//        }
     }
 })();

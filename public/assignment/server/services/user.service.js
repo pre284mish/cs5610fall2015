@@ -4,7 +4,7 @@ module.exports = function(app){
 
     app.get("/api/assignment/user/", findAllUsers);
     app.get("/api/assignment/user/id=:id", findUserById);
-    app.get("/api/assignment/user?username=:username&password=:password", findUserByUsernameAndPassword);
+    app.get("/api/assignment/user/username=:username&password=:password", findUserByUsernameAndPassword);
     app.post("/api/assignment/user/", createUser);
     app.delete("/api/assignment/user/:id", deleteUserById);
     app.put("/api/assignment/user/id=:id", updateUser);
@@ -23,6 +23,8 @@ module.exports = function(app){
             "password" : req.params.password
 
             }
+            console.log("Credentials name blah "+ req.params.username);
+            console.log("Credentials password blah "+ req.params.password);
 
         res.json(model.findUserByCredentials(credentials));
     }

@@ -9,10 +9,13 @@ module.exports = function(app){
         updateForm : updateForm,
         removeForm : removeForm,
         findFormByTitle : findFormByTitle,
+        getFieldsForForm : getFieldsForForm,
+        deleteFieldsFromForm : deleteFieldsFromForm,
+        createFieldForForm : createFieldForForm
     };
     return api;
 
-    function generateFormId() {
+    function generateId() {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)
               .toString(16)
@@ -23,7 +26,7 @@ module.exports = function(app){
     }
     function createForm(userId, formObj){
         var form = {
-            id : generateFormId(),
+            id : generateId(),
             title : formObj.title,
             userId : userId
         }
@@ -79,4 +82,46 @@ module.exports = function(app){
             }
         }
     }
+
+
+
+// Functions for Fields:
+
+    function createFieldForForm(formId, fieldObj){
+    console.log("createfield: "+ formId + fieldObj);
+    fieldObj.id = generateId();
+        var formObj = findByFormId(formId);
+        var allFields = formObj.fields;
+
+        if(allFields == null){
+            allFields = [];
+        }
+            allFields.push(fieldObj);
+            formObj.fields = allFields;
+
+    }
+
+    function getFieldsForForm(formId){
+        for(var i in forms){
+            if(forms[i].id == formId){
+                return forms[i];
+            }
+        }
+
+    }
+
+    function deleteFieldsFromForm(formId, fieldId){
+    console.log("formid" + formId + "fieldid"+ fieldId);
+        for(var i in forms){
+            if(forms[i].id == formId){
+                var fields = forms[i].fields;
+                for(var j in fields){
+                    if(fields[j].id == fieldId){
+                        fields.splice(j, 1);
+                    }
+                }
+            }
+        }
+    }
+
 };

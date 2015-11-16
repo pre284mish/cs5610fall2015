@@ -1,110 +1,137 @@
 <body>
-    <div class="col-sm-10 welcome-left-margin-index">
+    <div class="col-sm-10 main welcome-left-margin-index">
         <div class="container">
 
-            <h2 class="page-header">Forms : Registration Form</h2>
+            <h2 class="page-header">Forms : {{model.form.title}}</h2>
             <ul class="nav nav-tabs">
-                <li ng-class="{'active': $location.url().indexOf('form') != -1 }">
-                    <a href="#/form" class="ng-binding"> Forms </a> </li>
-                <li ng-class="{'active': $location.url().indexOf('field') != -1 }">
-                    <a href="#/field" class="ng-binding"> Fields </a> </li>
+                <li>
+                    <a href="#/form" class="ng-binding"> Forms </a>
+                </li>
+                <li class="ng-scope active">
+                    <a href="#/field" class="ng-binding"> Fields </a>
+                </li>
             </ul>
 
+
             <form class="form-horizontal bottom-padding-field">
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">First Name:</label>
-                    <div class="col-sm-5">
-                        <input id="firstName" class="form-control" type="text" placeholder="First Name">
-                    </div>
-                    <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </div>
-                </div>
+                <div ng-repeat="currentField in model.fields">
+                    <div ng-switch on="currentField.type">
 
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">Last Name:</label>
-                    <div class="col-sm-5">
-                        <input id="lastName" class="form-control" type="text" placeholder="Last Name">
+                    <div ng-switch-when="TEXT">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-2">{{currentField.label}}</label>
+                            <div class="col-sm-5">
+                                <input id="firstName" class="form-control" type="text" placeholder="{{currentField.placeholder}}">
+                            </div>
+                            <div class="allicons col-lg-5">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </div>
-                </div>
 
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">Date Of Birth:</label>
-                    <div class="col-sm-5">
-                        <input id="dob" class="form-control" type="date" placeholder="Select Date">
+                    <div ng-switch-when="TEXTAREA">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-2">{{currentField.label}}</label>
+                            <div class="col-sm-5">
+                                <input id="lastName" class="form-control" type="text" placeholder="{{currentField.placeholder}}">
+                            </div>
+                            <div class="allicons col-lg-5">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </div>
-                </div>
 
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">Gender:</label>
-                    <div class="col-sm-5">
-                        <select id="gender" class="form-control">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
+                    <div ng-switch-when="DATE">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-2">{{currentField.label}}</label>
+                            <div class="col-sm-5">
+                                <input id="dob" class="form-control" type="date" placeholder="{{currentField.placeholder}}">
+                            </div>
+                            <div class="allicons col-lg-5">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </div>
-                </div>
 
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">Roles:</label>
-                    <div class="checkbox col-sm-5" id="roles">
-                        <div>
-                            <label><input type="checkbox" value="">Admin</label>
-                        </div>
-                        <div>
-                            <label><input type="checkbox" value="">Student</label>
-                        </div>
-                        <div>
-                            <label><input type="checkbox" value="">User</label>
+                    <div ng-switch-when="OPTIONS">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-2">{{currentField.label}}</label>
+                            <div class="col-sm-5">
+                                <select id="optionId" class="form-control">
+                                    <option ng-repeat="allOption in currentField.options">
+                                        {{allOption.value}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="allicons col-lg-5">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+
+                    <div ng-switch-when="CHECKBOXES">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-2">{{currentField.label}}</label>
+                            <div class="col-sm-5" id="roles">
+
+                                <label ng-repeat="checkOption in currentField.options">
+
+                                    <input type="checkbox" name="checkOption.value" value="{{checkOption.value}}">{{"  "+checkOption.label}}
+                                </label>
+                            </div>
+                            <div class="allicons col-lg-5">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-2">License Agreement:</label>
-                    <div class="radio col-sm-5" id="licenseAgreement">
-                        <div>
-                            <label><input type="radio" name="radio1">Yes</label>
+                        <div ng-switch-when="EMAIL">
+                            <div class="form-group top-margin">
+                                <label class="control-label col-sm-2">{{currentField.label}}</label>
+                                <div class="col-sm-5">
+                                    <input id="email" class="form-control" type="email" placeholder="{{currentField.placeholder}}">
+                                </div>
+                                <div class="allicons col-lg-5">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="radio">
-                            <label><input type="radio" name="radio2">No</label>
-                        </div>
-                        </div>
-                        <div class="allicons col-lg-5">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove" ng-click="removeField(field)" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                        </div>
-                </div>
 
+                        <div ng-switch-when="RADIOS">
+                            <div class="form-group top-margin">
+                                <label class="control-label col-sm-2">{{currentField.label}}</label>
+                                <div class="col-sm-5">
+                                    <input id="radios" type="radio" placeholder="{{currentField.placeholder}}">
+                                </div>
+                                <div class="allicons col-lg-5">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <a href = ""><span class="glyphicon glyphicon-remove" ng-click="model.removeField(model.formId, currentField.id)" aria-hidden="true"></span></a>
+                                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                </div> <!-- End of loop-->
                 <div class="form-group col-sm-12 padding-hr">
                     <hr>
                 </div>
@@ -113,16 +140,17 @@
                     <label class="control-label col-sm-2">Add New Field:</label>
                     <div class="col-lg-5 ">
                         <select id="addNewField" ng-model="model.fieldType" class="align-field-new-field">
-                            <option>Single Line Text</option>
-                            <option>Multi Line Text</option>
-                            <option>Date</option>
-                            <option>Dropdown</option>
-                            <option>Checkboxes</option>
-                            <option>Radio Buttons</option>
+                            <option value="TEXT">Single Line Text</option>
+                            <option value="TEXTAREA">Multi Line Text</option>
+                            <option value="DATE">Date</option>
+                            <option value="OPTIONS">Dropdown</option>
+                            <option value="EMAIL">Email</option>
+                            <option value="CHECKBOXES">Checkboxes</option>
+                            <option value="RADIOS">Radio Buttons</option>
                         </select>
                     </div>
                     <div class="allicons col-lg-5">
-                        <span class="glyphicon glyphicon-plus" ng-click=addField(model.fieldType) aria-hidden="true"></span>
+                        <a href = ""><span class="glyphicon glyphicon-plus" ng-click="model.addField(model.formId, model.fieldType)" aria-hidden="true"></span></a>
                     </div>
                 </div>
 

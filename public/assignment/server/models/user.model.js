@@ -73,8 +73,9 @@ module.exports = function(app){
 
     function findUserByCredentials(credentials){
         for(var i in users){
-            if(users[i].username.localeCompare(credentials.username) == 0 && users[i].password.localeCompare(credentials.password)){
-                return user[i];
+            if(users[i].username.localeCompare(credentials.username) == 0 &&
+            users[i].password.localeCompare(credentials.password == 0)){
+                return users[i];
             }
         }
     }

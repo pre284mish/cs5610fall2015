@@ -9,11 +9,13 @@
             var model = this;
             model.update = update;
 
-            console.log("Userid:: "+$rootScope.currentUserId);
-            UserService.findUserById($rootScope.currentUserId)
+            console.log("Profile controller Userid:: "+$rootScope.currentUserId);
+
+
+                UserService.findUserById($rootScope.currentUserId)
                     .then(function(user){
                         model.currentUser = user;
-                        console.log("Username:: "+model.currentUser.username);
+//                        console.log("Username:: "+model.currentUser.username);
                     })
 
 

@@ -1,14 +1,16 @@
 <body>
-<div class="col-sm-10 welcome-left-margin-index">
+<div class="col-sm-10 main welcome-left-margin-index">
     <div class="container">
 
         <h2 class="page-header">Forms</h2>
         <!--{{forms}}-->
         <ul class="nav nav-tabs">
-            <li ng-class="{'active': $location.url().indexOf('form') != -1 }">
-                <a href="#/form" class="ng-binding"> Forms </a> </li>
-            <li ng-class="{'active': $location.url().indexOf('field') != -1 }">
-                <a href="#/field" class="ng-binding"> Fields </a> </li>
+            <li class="ng-scope active">
+                <a href="#/form" class="ng-binding"> Forms </a>
+            </li>
+            <li>
+                <a href="#/field" class="ng-binding"> Fields </a>
+            </li>
         </ul>
 
 
@@ -39,7 +41,7 @@
             </tr>
 
             <tr ng-repeat="form in model.forms">
-                <td> {{form.title}} </td>
+                <td><a href="/assignment/client/#/user/{{currentUserId}}/form/{{form.id}}/fields"> {{form.title}}</a>  </td>
                 <td>
                     <a ng-click="model.deleteForm(form.id)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

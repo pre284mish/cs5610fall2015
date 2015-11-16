@@ -4,13 +4,15 @@
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController($scope, $rootScope, UserService, FormService) {
+    function FormController($rootScope, UserService, FormService) {
 
 
         var model = this;
         model.addForm = addForm;
         model.updateForm = updateForm;
         model.deleteForm = deleteForm;
+        console.log("Form controller for userID: "+ $rootScope.currentUserId);
+        updateModel($rootScope.currentUserId);
 //        model.selectForm = selectForm;
 
 
@@ -31,7 +33,7 @@
                            .then(function(forms){
                            console.log("All the forms:"+forms);
                                model.forms = forms;
-                            })
+                            });
 
         }
 
@@ -39,7 +41,7 @@
             var formObj = {userId: $rootScope.currentUser.id, title: model.form.formName};
             FormService.createFormForUser(formObj)
                     .then(function(form){
-                        model.currentForm = form;
+                         model.forms = form;
                     });
         }
 
