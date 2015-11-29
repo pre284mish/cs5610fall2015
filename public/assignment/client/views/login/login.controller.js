@@ -11,11 +11,12 @@
         model.login = login;
 
         function login(){
-            console.log(model.username);
             UserService.findUserByUsernameAndPassword(model.username, model.password)
                     .then(function(user){
-                        console.log("login user: "+ user)
-                        $rootScope.currentUserId = user.id;
+                        console.log("login user: "+ JSON.stringify(user, null, 4))
+                        console.log("login userID: "+ user[0]._id);
+                        console.log("login userID: "+ user.password);
+                        $rootScope.currentUserId = user[0]._id;
                         $location.url("/profile");
                     })
         }

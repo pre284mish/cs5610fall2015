@@ -15,14 +15,14 @@
                 UserService.findUserById($rootScope.currentUserId)
                     .then(function(user){
                         model.currentUser = user;
-//                        console.log("Username:: "+model.currentUser.username);
+                        console.log("Email in profile controller:: "+model.currentUser.email);
                     })
 
 
             function update(){
                 console.log(model.currentUser.username);
-                console.log(model.currentUser.id);
-                UserService.updateUser(model.currentUser.id, model.currentUser)
+                console.log(model.currentUser._id);
+                UserService.updateUser(model.currentUser._id, model.currentUser)
                         .then(function(user){
                             $rootScope.currentUser = user;
                         })

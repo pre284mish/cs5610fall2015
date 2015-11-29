@@ -50,6 +50,7 @@
             var deferred = $q.defer();
             $http.get("/api/assignment/user/username=" + username +"&password=" + password)
                     .success(function(user){
+                    console.log("UserService.js: "+ JSON.stringify(user, null, 4))
                         deferred.resolve(user);
                     });
             return deferred.promise;
