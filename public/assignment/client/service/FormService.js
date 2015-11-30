@@ -26,9 +26,9 @@
             s4() + '-' + s4() + s4() + s4();
         }
 
-        function createFormForUser(userId, formObj){
+        function createFormForUser(formObj){
             var deferred = $q.defer();
-            $http.post("/api/assignment/user/"+userId+"/form", formObj)
+            $http.post("/api/assignment/user/"+formObj.userId+"/form", formObj)
                     .success(function (response) {
                         deferred.resolve(response);
                      });

@@ -1,6 +1,6 @@
-var model = require("../models/form.model.js")();
+//var model = require("../models/form.model.js")();
 
-module.exports = function(app){
+module.exports = function(app, model){
 
     app.get("/api/assignment/user/:userId/form", findAllFormsForUser);
     app.get("/api/assignment/form/:formId", findFormById);
@@ -12,25 +12,38 @@ module.exports = function(app){
 
     function findAllFormsForUser(req, res){
         var userId = req.params.userId;
-        res.json(model.findAllForms(userId));
+        console.log("User at FormService findallForms" + userId)
+        model.findAllForms(userId)
+        .then (function(forms){
+             res.json(forms);
+        });
     }
 
     function createNewForm(req, res){
         var formObj = req.body;
         var userId = req.params.userId;
         console.log("create form:" + formObj+ "for :"+userId);
-        res.json(model.createForm(userId, formObj));
+        model.createForm(formObj)
+        .then (function(forms){
+             res.json(forms);
+        });
     }
 
     function deleteFormByFormId(req, res){
         var id = req.params.formId;
-        res.json(model.removeForm(id));
+        model.removeForm(id)
+        .then (function(forms){
+            res.json(forms);
+        })
     }
 
     function findFormById(req, res){
         var id = req.params.id;
         console.log("find form:" + id);
-        res.json(model.findByFormId(id));
+        model.findByFormId(id)
+        .then (function(form){
+              res.json(form);
+          })
     }
 
     function updateFormById(req, res){
@@ -38,13 +51,19 @@ module.exports = function(app){
         console.log(id);
         var updatedFormObj = req.body;
         console.log(updatedFormObj);
-        res.json(model.updateForm(id, updatedFormObj));
+        model.updateForm(id, updatedFormObj)
+        .then (function(form){
+              res.json(form);
+          })
     }
 
     function findFormByTitle(req, res){
         var title = req.params.title;
         console.log("find form:" + id);
-        res.json(model.findFormByTitle(title));
+        model.findFormByTitle(title)
+        .then (function(form){
+              res.json(form);
+          })
     }
 
 };

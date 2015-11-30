@@ -41,9 +41,9 @@
             </tr>
 
             <tr ng-repeat="form in model.forms">
-                <td><a href="/assignment/client/#/user/{{currentUserId}}/form/{{form.id}}/fields"> {{form.title}}</a>  </td>
+                <td><a href="/assignment/client/#/user/{{currentUserId}}/form/{{form._id}}/fields"> {{form.title}}</a>  </td>
                 <td>
-                    <a ng-click="model.deleteForm(form.id)">
+                    <a ng-click="model.deleteForm(form._id)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </a>
                     <a ng-click="model.selectForm($index)">

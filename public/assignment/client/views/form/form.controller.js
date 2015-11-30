@@ -19,8 +19,9 @@
         function addForm(){
             console.log("form:" + $rootScope.currentUserId);
             var userId = $rootScope.currentUserId;
-            var formObj = {title: model.formName};
-            FormService.createFormForUser(userId, formObj)
+            var formObj = {title: model.formName, userId: userId};
+            console.log("Form object creation: "+ JSON.stringify(formObj, null, 4))
+            FormService.createFormForUser(formObj)
                     .then(function(form){
                           model.forms = form;
                           updateModel($rootScope.currentUserId);
