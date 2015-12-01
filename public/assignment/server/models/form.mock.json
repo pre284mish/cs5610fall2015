@@ -1,24 +1,24 @@
 
 [
-  {"title": "Contacts", "userId": 123,
+  {"title": "Contacts", "userId": "565d40635a0ea06591000001",
     "fields": [
-      {"label": "First Name", "type": "TEXT", "placeholder": "First Name"},
-      {"label": "Last Name", "type": "TEXT", "placeholder": "Last Name"},
-      {"label": "Address", "type": "TEXT", "placeholder": "Address"},
-      {"label": "State", "type": "OPTIONS", "options": [
+      {"label": "First Name", "fieldType": "TEXT", "placeholder": "First Name"},
+      {"label": "Last Name", "fieldType": "TEXT", "placeholder": "Last Name"},
+      {"label": "Address", "fieldType": "TEXT", "placeholder": "Address"},
+      {"label": "State", "fieldType": "OPTIONS", "options": [
         {"label": "Massachussets", "value": "MA"},
         {"label": "New Hampshire", "value": "NH"}
           ]},
-        {"label": "ZIP", "type": "TEXT", "placeholder": "ZIP"},
-        {"label": "Email", "type": "EMAIL", "placeholder": "Email"}
+        {"label": "ZIP", "fieldType": "TEXT", "placeholder": "ZIP"},
+        {"label": "Email", "fieldType": "EMAIL", "placeholder": "Email"}
       ]
       },
 
-      {"title": "ToDo", "userId": 234,
+      {"title": "ToDo", "userId": "565d40205a0ea06591000000",
         "fields": [
-          {"label": "Title", "type": "TEXT", "placeholder": "Title"},
-          {"label": "Description", "type": "TEXTAREA", "placeholder": "Title"},
-          {"label": "Due Date", "type": "DATE"}
+          {"label": "Title", "fieldType": "TEXT", "placeholder": "Title"},
+          {"label": "Description", "fieldType": "TEXTAREA", "placeholder": "Title"},
+          {"label": "Due Date", "fieldType": "DATE"}
         ]
       }
 ]
