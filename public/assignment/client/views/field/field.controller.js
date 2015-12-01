@@ -114,7 +114,6 @@
 
 
         function removeField(formId, fieldId){
-        alert("Hii");
             console.log("delete client controller field" + fieldId);
             console.log("delete client controller form id" + formId);
              FieldService.deleteFieldFromForm(formId, fieldId)
