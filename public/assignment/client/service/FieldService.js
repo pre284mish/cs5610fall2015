@@ -17,7 +17,8 @@
 
 
         function createFieldForForm(formId, fieldObj){
-        console.log("createFieldForForm: " + formId + fieldObj);
+        console.log("createFieldForForm Service client: " + formId + JSON.stringify(fieldObj, null, 4));
+
             var deferred = $q.defer();
             $http.post("/api/assignment/form/"+ formId +"/field", fieldObj)
                     .success(function (response) {
@@ -29,8 +30,10 @@
 
         function getFieldsForForm(formId) {
             var deferred = $q.defer();
+            console.log("FieldService formID " + formId);
             $http.get("/api/assignment/form/" + formId + "/field")
                     .success(function(response){
+                        console.log("field response :::" + response);
                         deferred.resolve(response);
                     });
             return deferred.promise;

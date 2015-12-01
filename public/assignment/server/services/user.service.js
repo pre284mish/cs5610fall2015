@@ -10,9 +10,6 @@ module.exports = function(app, model){
     app.put("/api/assignment/user/id=:id", updateUser);
 
 
-
-
-
     function findAllUsers(req, res){
         model.findAllUsers()
         .then (function(users){

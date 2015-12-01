@@ -50,7 +50,7 @@
             var deferred = $q.defer();
             $http.get("/api/assignment/form/"+ formId)
                     .success(function(form){
-//                    console.log("find by id"+user.username+"for "+ userId);
+                    console.log("find by form: "+JSON.stringify(form, null, 4));
                         deferred.resolve(form);
                     });
             return deferred.promise;
