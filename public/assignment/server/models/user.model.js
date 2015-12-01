@@ -60,6 +60,10 @@ module.exports = function(db, mongoose){
 
     function updateUser(userId, userObj){
         var deferred = q.defer();
+
+        //For openshift delete userId before updating a user
+        delete userObj._id;
+
         UserModel.update({_id: userId},{$set: userObj}, function(err, doc){
             if(err){
                 deferred.reject(err);
