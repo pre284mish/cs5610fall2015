@@ -132,3 +132,7 @@
     .remove-left-padding{
         padding-left: 0px;
     }
+
+    .align-left-username{
+        margin-right: 20px;
+    }

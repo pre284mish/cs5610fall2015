@@ -1,0 +1,17 @@
+[
+  {"jobDescription": "100 yards of lawn mowing", "category": "Lawn Mowning",
+    "userId": "5661fefa277b4abbe7c01a7a", "status": "Pending", "postedBy":"PL",
+    "address":
+      {"street": "6778 xcv street", "apt": "12", "city": "Seattle","state": "WA","zip": "98111"}
+
+
+  },
+
+  {"jobDescription": "50 yards of mowning", "category": "Lawn Mowning",
+    "userId": "5661feb6277b4abbe7c01a79", "status": "Pending", "postedBy":"PL",
+    "address":
+      {"street": "232 western St.", "apt": "123", "city": "Seattle","state": "WA","zip": "21312"}
+
+
+  }
+]

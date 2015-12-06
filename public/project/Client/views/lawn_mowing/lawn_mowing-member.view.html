@@ -32,35 +32,13 @@
                 <th><h5 class="adjust-width">Posted by</h5></th>
             </tr>
             </thead>
-            <tbody >
-            <tr>
-                <td>100 yards of lawn mowing</td>
-                <td>6778 xcv street,
-                    Seattle, WA-98199
-                    Phone no. 0238403820
-                    09/22/2015 1:00pm -4:00pm</td>
-                <td>Pending</td>
+            <tbody>
+            <tr ng-repeat="job in model.jobs">
+                <td>{{job.description}}</td>
+                <td>{{job.address}}</td>
+                <td>{{job.status}}</td>
                 <td>Alex</td>
             </tr>
-            <tr>
-                <td>150 yards of snow shoveling</td>
-                <td>223 adam street,
-                    Boston, MA-98199
-                    Phone no. 0238403820
-                    09/22/2015 1:00pm -4:00pm</td>
-                <td>Completed</td>
-                <td>Max</td>
-            </tr>
-            <tr>
-                <td>female caretaker required</td>
-                <td>22343 asdam street,
-                    Boston, MA-2332
-                    Phone no. 0238403820
-                    09/22/2015 1:00pm -4:00pm</td>
-                <td>Acquired</td>
-                <td>Alice</td>
-            </tr>
-
             </tbody>
         </table>
 
