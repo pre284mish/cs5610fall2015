@@ -9,14 +9,13 @@
         var service = {
             createJobByUser : createJobByUser,
             findAllJobsByCategory : findAllJobsByCategory,
+            findAllJobsByUserId : findAllJobsByUserId,
             findAllJobsByCategoryAndStatus : findAllJobsByCategoryAndStatus,
-//            deleteFormById : deleteFormById,
-//            updateFormById : updateFormById,
-//            findFormById : findFormById,
-//            findFormByTitle : findFormByTitle
+            updateJob : updateJob,
+            findAllJobsByAcquiredBy :findAllJobsByAcquiredBy,
+            markCompleted : markCompleted
         };
         return service;
-
 
 
         function createJobByUser(jobObj){
@@ -28,6 +27,26 @@
                      });
 
             return deferred.promise;
+        }
+
+        function updateJob(jobId, jobObj){
+            var deferred = $q.defer();
+            $http.put("/api/project/job/id=" + jobId, jobObj)
+                    .success(function(job){
+                        deferred.resolve(job);
+                    });
+            return deferred.promise;
+
+        }
+
+        function markCompleted(jobId, jobObj){
+            var deferred = $q.defer();
+            $http.put("/api/project/completedjob/id=" + jobId, jobObj)
+                    .success(function(job){
+                        deferred.resolve(job);
+                    });
+            return deferred.promise;
+
         }
 
         function findAllJobsByCategory(category) {
@@ -51,31 +70,22 @@
            return deferred.promise;
         }
 
-        function deleteFormById(formId){
-            console.log("inside delete FormService"+formId)
+        function findAllJobsByUserId(userId) {
             var deferred = $q.defer();
-            $http.delete("/api/assignment/form/" + formId)
-                .success(function(form){
-                    deferred.resolve(form);
-                });
-            return deferred.promise;
-        }
-
-        function updateFormById(formId, formObj){
-            var deferred = $q.defer();
-            $http.put("/api/assignment/form/" + formId, formObj)
-                    .success(function(form){
-                        deferred.resolve(form);
+            $http.get("/api/project/user/"+userId+"/job")
+                    .success(function(jobs){
+                    console.log("JobService.findAllJobsByUserId" + jobs);
+                        deferred.resolve(jobs);
                     });
             return deferred.promise;
-
         }
 
-        function findFormByTitle(formTitle) {
+        function findAllJobsByAcquiredBy(userId) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/form/:formTitle"+ formTitle)
-                    .success(function(form){
-                        deferred.resolve(form);
+            $http.get("/api/project/acquiredBy/"+userId+"/job")
+                    .success(function(jobs){
+                    console.log("JobService.findAllJobsByAcquiredBy" + jobs);
+                        deferred.resolve(jobs);
                     });
             return deferred.promise;
         }

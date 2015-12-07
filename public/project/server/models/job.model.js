@@ -8,13 +8,11 @@ module.exports = function(db, mongoose){
     var api = {
         createJobByUser : createJobByUser,
         findAllJobsByCategory : findAllJobsByCategory,
-        findAllJobsByCategoryAndStatus : findAllJobsByCategoryAndStatus
-//        updateForm : updateForm,
-//        removeForm : removeForm,
-//        findFormByTitle : findFormByTitle,
-//        getFieldsForForm : getFieldsForForm,
-//        deleteFieldsFromForm : deleteFieldsFromForm,
-//        createFieldForForm : createFieldForForm
+        findAllJobsByUserId : findAllJobsByUserId,
+        findAllJobsByCategoryAndStatus : findAllJobsByCategoryAndStatus,
+        updateJob : updateJob,
+        findAllJobsByAcquiredBy : findAllJobsByAcquiredBy,
+        markCompleted : markCompleted
     };
     return api;
 
@@ -32,15 +30,33 @@ module.exports = function(db, mongoose){
 
     function findAllJobsByCategory(category){
             var deferred = q.defer();
-            JobModel.find({category: category}, function(err, form){
-                deferred.resolve(form);
+            JobModel.find({category: category}, function(err, job){
+                deferred.resolve(job);
             });
             return deferred.promise;
         }
 
+        function findAllJobsByUserId(userId){
+                var deferred = q.defer();
+                JobModel.find({userId: userId}, function(err, job){
+                    console.log("job.model.js job for findAlljobsforUserId: "+ JSON.stringify(job, null, 4))
+                    deferred.resolve(job);
+                });
+                return deferred.promise;
+            }
+
+         function findAllJobsByAcquiredBy(userId){
+             var deferred = q.defer();
+             JobModel.find({acquiredBy: userId}, function(err, job){
+                 console.log("job.model.js job for findAllJobsByAcquiredBy: "+ JSON.stringify(job, null, 4))
+                 deferred.resolve(job);
+             });
+             return deferred.promise;
+         }
+
      function findAllJobsByCategoryAndStatus(params){
             var deferred = q.defer();
-            FormModel.find({$and: [{category: params.category}, {status: params.status}]}, function(err, job){
+            JobModel.find({$and: [{category: params.category}, {status: params.status}]}, function(err, job){
                 console.log("jon.model.js doc: "+ JSON.stringify(job, null, 4))
                 console.log("job.model.js err: "+ JSON.stringify(err, null, 4))
 
@@ -49,79 +65,43 @@ module.exports = function(db, mongoose){
             return deferred.promise;
         }
 
-//    function updateForm(formId, newForm){
-//        FormModel.update({_id: formId}, {$set: newForm}, function(err, form){
-//        if(err){
-//            deferred.reject(err);
-//        }else{
-//            FormModel.findById(formId, function(err, form){
-//            deferred.resolve(form);
-//            });
-//        }
-//        });
-//        return deferred.promise;
-//    }
-//
-//    function removeForm(formId){
-//        var deferred = q.defer();
-//        FormModel.remove({_id: formId}, function(err, form){
-//            deferred.resolve(form);
-//        });
-//        return deferred.promise;
-//    }
-////
-//
-//
-//
-//
-//// Functions for Fields:
-//
-//    function createFieldForForm(formId, fieldObj){
-//
-//        var deferred = q.defer();
-//        console.log("createfield: "+ formId + JSON.stringify(fieldObj, null, 4));
-//        FormModel.findById(formId, function(err, form){
-//            if(err){
-//                    deferred.reject(err);
-//                }
-//            else{
-//                    form.fields.push(fieldObj);
-//                    console.log("form.model create fields::::: " + JSON.stringify(form.fields, null, 4));
-//                    form.save (function (err, fields) {
-//                    console.log("Error::" + err);
-//                    console.log("after save server::"+ fields);
-//                    deferred.resolve(fields);
-//                });
-//            }
-//        });
-//        return deferred.promise;
-//    }
-//
-//    function getFieldsForForm(formId){
-//        var deferred = q.defer();
-//        FormModel.findById(formId, function(err, form){
-//            console.log("form.model fields::::: " + JSON.stringify(form.fields, null, 4));
-//            deferred.resolve(form.fields);
-//        });
-//        return deferred.promise;
-//    }
-//
-//    function deleteFieldsFromForm(formId, fieldId){
-//        var deferred = q.defer();
-//        console.log("formid" + formId + "fieldid"+ fieldId);
-//        FormModel.findById(formId, function(err, form){
-//            var fields = form.fields;
-//            for(var i in fields){
-//                if(fields[i]._id == fieldId){
-//                    fields.splice(i, 1);
-//                }
-//            }
-//            form.save(function(err, forms){
-//                deferred.resolve(forms);
-//            });
-//
-//        });
-//        return deferred.promise;
-//    }
+    function updateJob(jobId, jobObj){
+            var deferred = q.defer();
+
+            //For openshift delete userId before updating a user
+//            delete userObj._id;
+
+                JobModel.update({_id: jobId},{$set: jobObj}, function(err, job){
+                if(err){
+                    deferred.reject(err);
+                }else{
+                    JobModel.findById(jobId, function(err, job){
+                     console.log("update job model: "+ JSON.stringify(job, null, 4))
+                    deferred.resolve(job);
+                });
+               }
+            });
+            return deferred.promise;
+        }
+
+
+        function markCompleted(jobId, jobObj){
+                    var deferred = q.defer();
+
+                    //For openshift delete userId before updating a user
+        //            delete userObj._id;
+
+                        JobModel.update({_id: jobId},{$set: jobObj}, function(err, job){
+                        if(err){
+                            deferred.reject(err);
+                        }else{
+                            JobModel.findById(jobId, function(err, job){
+                             console.log("markCompleted job model: "+ JSON.stringify(job, null, 4))
+                            deferred.resolve(job);
+                        });
+                       }
+                    });
+                    return deferred.promise;
+                }
 
 };

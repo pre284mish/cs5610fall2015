@@ -33,11 +33,13 @@
                         })
                         .when("/my_jobs", {
                             templateUrl: "views/my_jobs/my_jobs.view.html",
-                            controller: ""
+                            controller: "MyJobsController",
+                            controllerAs: "model"
                         })
                          .when("/my_listings", {
                             templateUrl: "views/my_listings/my_listings.view.html",
-                            controller: ""
+                            controller: "MyListingController",
+                            controllerAs: "model"
                         })
                         .when("/login", {
                             templateUrl: "views/login/login.view.html",

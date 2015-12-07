@@ -2,10 +2,11 @@ module.exports = function(app, model){
 
     app.get("/api/project/user/category=:category&status=:status", findAllJobsByCategoryAndStatus);
     app.get("/api/project/category/:category/job", findAllJobsByCategory);
+    app.get("/api/project/user/:userId/job", findAllJobsByUserId);
     app.post("/api/project/user/:userId/job", createJobByUser);
-//    app.delete("/api/assignment/form/:formId", deleteFormByFormId);
-//    app.put("/api/assignment/form/:formId", updateFormById);
-//    app.get("/api/assignment/form/:formTitle", findFormByTitle);
+    app.put("/api/project/job/id=:id", updateJob);
+    app.put("/api/project/completedjob/id=:id", markCompleted);
+    app.get("/api/project/acquiredBy/:userId/job", findAllJobsByAcquiredBy);
 
 
     function findAllJobsByCategory(req, res){
@@ -27,6 +28,25 @@ module.exports = function(app, model){
         });
     }
 
+    function findAllJobsByUserId(req, res){
+        var userId = req.params.userId;
+        console.log("User at JobService findallJobs" + userId)
+        model.findAllJobsByUserId(userId)
+        .then (function(jobs){
+             res.json(jobs);
+        });
+    }
+
+    function findAllJobsByAcquiredBy(req, res){
+        var userId = req.params.userId;
+        console.log("AcquiredBy User at JobService findAllJobsByAcquiredBy" + userId)
+        model.findAllJobsByAcquiredBy(userId)
+        .then (function(jobs){
+             res.json(jobs);
+        });
+    }
+
+
      function findAllJobsByCategoryAndStatus(req, res){
             var params = {
                 "category" : req.params.category,
@@ -45,41 +65,27 @@ module.exports = function(app, model){
             });
         }
 
-    function deleteFormByFormId(req, res){
-        var id = req.params.formId;
-        model.removeForm(id)
-        .then (function(forms){
-            res.json(forms);
-        })
-    }
+     function updateJob(req, res){
+            var id = req.params.id;
+            console.log(id);
+            var updatedJobObj = req.body;
+            console.log(JSON.stringify(updatedJobObj, null, 4));
+            model.updateJob(id, updatedJobObj)
+            .then (function(job){
+                res.json(job);
+            });
+        }
 
-    function findFormById(req, res){
-        var id = req.params.formId;
-        console.log("find form:" + id);
-        model.findByFormId(id)
-        .then (function(form){
-              res.json(form);
-          })
-    }
 
-    function updateFormById(req, res){
-        var id = req.params.id;
-        console.log(id);
-        var updatedFormObj = req.body;
-        console.log(updatedFormObj);
-        model.updateForm(id, updatedFormObj)
-        .then (function(form){
-              res.json(form);
-          })
-    }
-
-    function findFormByTitle(req, res){
-        var title = req.params.title;
-        console.log("find form:" + id);
-        model.findFormByTitle(title)
-        .then (function(form){
-              res.json(form);
-          })
-    }
+        function markCompleted(req, res){
+            var id = req.params.id;
+            console.log(id);
+            var updatedJobObj = req.body;
+            console.log(JSON.stringify(updatedJobObj, null, 4));
+            model.markCompleted(id, updatedJobObj)
+            .then (function(job){
+                res.json(job);
+            });
+        }
 
 };

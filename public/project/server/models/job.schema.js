@@ -6,10 +6,12 @@ module.exports = function(mongoose) {
     var JobSchema = new Schema({
             category: String,
             jobDescription: String,
-            postedDate: Date,
+            postedDate: {type: Date, default: Date.now},
             status: String,
-            userId: String,
-            address: AddressSchema
+            userId : String,
+            postedBy: UserSchema,
+            address: AddressSchema,
+            acquiredBy: UserSchema
         }, {collection: "cs5610.project.job"});
 
         return JobSchema;
