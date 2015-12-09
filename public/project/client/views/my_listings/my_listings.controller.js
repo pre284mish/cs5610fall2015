@@ -11,6 +11,7 @@
         model.getFilteredJobsMyListings = getFilteredJobsMyListings;
         model.deleteJob = deleteJob;
         model.editJob = editJob;
+        model.comment = comment;
 
          function getMyListings(userId) {
             console.log("get all jobs of userId:" + userId);
@@ -42,6 +43,11 @@
 
          function editJob(jobId){
             $location.url("/update_job");
+            $rootScope.jobId = jobId;
+         }
+
+         function comment(jobId){
+            $location.url("/comment");
             $rootScope.jobId = jobId;
          }
 

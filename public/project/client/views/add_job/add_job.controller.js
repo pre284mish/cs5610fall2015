@@ -6,6 +6,7 @@
     function AddJobController($scope, $rootScope, $routeParams, $location, UserService, JobService) {
         var model = this;
         model.post = post;
+        model.category = $rootScope.category;
 
         console.log("AddJobController: " + $rootScope.role + $rootScope.category);
         function post(){

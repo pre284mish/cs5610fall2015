@@ -32,7 +32,9 @@
              JobService.updateJob(jobId, jobObj)
                      .then(function(job){
                           model.jobs = job;
-                          $location.url("/my_listings");
+//                          model.myDate = new Date(model.jobs.postedDate);
+                            $rootScope.myDate = new Date('2014-03-08T00:00:00');
+                            $location.url("/my_listings");
                      });
              }
     }

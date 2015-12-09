@@ -64,6 +64,11 @@
                             controller: "UpdateJobController",
                             controllerAs: "model"
                         })
+                        .when("/comment", {
+                            templateUrl: "views/comment/comment.view.html",
+                            controller: "CommentController",
+                            controllerAs: "model"
+                        })
                         .otherwise({
                             redirectTo: "/home"
                         });

@@ -30,7 +30,7 @@
 
                 <form class="form-horizontal" role="form">
 
-                    <h2 class="page-header">Add a new job</h2>
+                    <h2 class="page-header">Update Job</h2>
 
 
                     <div class="form-group top-margin">
@@ -91,11 +91,11 @@
                         <label class="control-label col-sm-3" for="datetime">Date</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.postedDate" type="date" class="form-control" id="datetime">
+                            <input ng-model="model.currentJob.postedDate | date:'MM/dd/yyyy'" type="date" class="form-control" id="datetime">
                         </div>
                     </div>
 
-
+                    {{model.currentJob.postedDate | date:'MM/dd/yyyy'}}
                     <div class="form-group top-margin ">
                         <div class="col-sm-offset-3  col-sm-3">
                             <button ng-click="model.updateJob(model.currentJob._id)" type="submit"
