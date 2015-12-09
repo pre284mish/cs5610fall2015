@@ -1,23 +1,35 @@
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-
+    <div class="container-fluid header-width-login">
         <div class="navbar-header">
-            <a class="navbar-brand align-formaker-up" href="#/home"><h2>Come Unite</h2></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand align-formaker-up" href="#/home">Come Unite</a>
         </div>
 
-        <div class="container">
-            <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
-                <li><a a href="#/my_listings"><h5>My Listings</h5></a></li>
-                <li><a a href="#/profile"><h5>{{model.jobs[0].postedBy.firstname}}'s Profile</h5></a></li>
-                <li><a><h5>Logout</h5></a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
             </ul>
+            <div class="container">
+                <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
+                    <li><a href="#/my_listings"><h5>My Listings</h5></a>
+                    </li>
+                    <li><a href="#/profile"><h5>{{model.currentUser.firstname}}'s Profile</h5></a></li>
+                    <li><a><h5>Logout</h5></a></li>
+                </ul>
+            </div>
         </div>
-
     </div>
-
 </nav>
+
+
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 remove-left-padding">

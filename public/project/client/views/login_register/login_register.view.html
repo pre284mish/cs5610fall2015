@@ -28,37 +28,44 @@
 
 <body>
 
-<!-- the top navigation bar-->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid header-width-login">
-
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand align-formaker-up" href="home.html"><h2>Come Unite</h2></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home">Come Unite</a>
         </div>
-        <form class="" role="form">
-            <div  class="container">
-                <ul class="nav navbar-nav navbar-right nav-pills ">
-                    <li class="align-left-username">
-                        <h5 class="set-color-for-labels">Username</h5>
-                        <input ng-model="model.loginUsername" type="username" class="form-control align-login" id="loginUsername">
-                    </li>
-                    <li>
-                        <h5 class="set-color-for-labels">Password</h5>
-                        <input ng-model="model.loginPassword" type="password" class="form-control align-login" id="loginPassword">
-                    </li>
-                    <li>
-                        <button ng-click="model.login()" type="submit" class="btn btn-primary btn-login-align
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+            <form class="" role="form">
+                <div  class="container login-header-height">
+                    <ul class="nav navbar-nav navbar-right nav-pills ">
+                        <li class="align-left-username">
+                            <h5 class="set-color-for-labels">Username</h5>
+                            <input ng-model="model.loginUsername" type="username" class="form-control align-login" id="loginUsername">
+                        </li>
+                        <li>
+                            <h5 class="set-color-for-labels">Password</h5>
+                            <input ng-model="model.loginPassword" type="password" class="form-control align-login" id="loginPassword">
+                        </li>
+                        <li>
+                            <button ng-click="model.login()" type="submit" class="btn btn-primary btn-login-align
                         active">Login </button>
-                    </li>
+                        </li>
 
-                </ul>
-            </div>
-         </form>
+                    </ul>
+                </div>
+            </form>
 
+        </div>
     </div>
-
 </nav>
-
 
         <!--</div>-->
         <div class="container-fluid">

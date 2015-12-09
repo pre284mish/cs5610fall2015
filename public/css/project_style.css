@@ -66,7 +66,9 @@
 
   }
 
-
+.login-header-height{
+    height: 71px;
+}
 
  .top-margin-project-home {
             margin-top:20px;
