@@ -11,6 +11,7 @@ module.exports = function(mongoose) {
             userId : String,
             postedBy: UserSchema,
             address: AddressSchema,
+            acquiredById: String,
             acquiredBy: UserSchema
         }, {collection: "cs5610.project.job"});
 

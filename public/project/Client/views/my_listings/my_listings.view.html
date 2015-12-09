@@ -1,19 +1,16 @@
-
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
 
         <div class="navbar-header">
             <a class="navbar-brand align-formaker-up" href="#/home"><h2>Come Unite</h2></a>
         </div>
 
-        <div  class="container">
+        <div class="container">
             <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
-                <!--<li ng-class = "{'active' : $location.url().indexOf('register') != -1}"><a href="#/register"><h5>Register</h5></a></li>-->
-                <!--<li ng-class = "{'active' : $location.url().indexOf('login') != -1}"><a href="#/login_register"><h5>Login</h5></a></li>-->
                 <li><a a href="#/my_listings"><h5>My Listings</h5></a></li>
-                <li><a a href="#/profile"><h5>Username's Profile</h5></a></li>
+                <li><a a href="#/profile"><h5>{{model.jobs[0].postedBy.firstname}}'s Profile</h5></a></li>
                 <li><a><h5>Logout</h5></a></li>
             </ul>
         </div>
@@ -21,54 +18,81 @@
     </div>
 
 </nav>
-
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 remove-left-padding">
+            <div ng-include="'views/sidebar/sidebar.view.html' "></div>
+        </div>
 
-    <div class="col-sm-9 main welcome-left-margin-index-project">
-        <div class="form-group top-margin-project-home">
-            <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>My Listings:</h3></label>
-            <!--<div class="col-sm-3">-->
-                <!--<input  type="text" class=" align-pincode-textbox" id="pincode" placeholder="98237">-->
-            <!--</div>-->
-            <div class="dropdown col-sm-3 align-dropdown">
-                <button class="btn btn-default dropdown-toggle align-pincode-textbox" type="textbox" id="menu1" data-toggle="dropdown">Filter by status
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu align-dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Acquired</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Completed</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pending</a></li>
-                </ul>
+        <div class="col-sm-9">
+            <div class="container-fluid">
+
+                <div class="col-sm-9 main welcome-left-margin-index-project">
+                    <div class="form-group top-margin-project-home">
+                        <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>My Listings:</h3>
+                        </label>
+                        <!--<div class="col-sm-3">-->
+                        <!--<input  type="text" class=" align-pincode-textbox" id="pincode" placeholder="98237">-->
+                        <!--</div>-->
+                        <div class="dropdown col-sm-3 align-dropdown">
+                            <button class="btn btn-default dropdown-toggle align-pincode-textbox" type="textbox"
+                                    id="menu1" data-toggle="dropdown">Filter by status
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu align-dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Acquired')">Acquired</a>
+                                </li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Completed')">Completed</a>
+                                </li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Pending')">Pending</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm-9 welcome-left-margin-index-project move-table-left">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th><h5 class="adjust-width">Job description</h5></th>
+                            <th><h5 class="adjust-width">Address</h5></th>
+                            <th><h5 class="adjust-width">Date</h5></th>
+                            <th><h5 class="adjust-width">Status</h5></th>
+                            <th><h5 class="adjust-width"></h5></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="job in model.jobs">
+                            <td>{{job.jobDescription}}</td>
+                            <td>{{job.address.street}} {{job.address.apt}} {{job.address.city}}
+                                {{job.address.state}} {{job.address.zip}}
+                            </td>
+                            <td>{{job.postedDate}}</td>
+                            <td>{{job.status}}</td>
+                            <td>
+                                <a ng-click="model.editJob(job._id)">
+                                    <span class="glyphicon glyphicon-pencil spacing-between-glyphicon"
+                                          aria-hidden="true"></span>
+                                </a>
+                                <a ng-click="model.deleteJob(job._id)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-
         </div>
     </div>
-
-    <div class="col-sm-9 welcome-left-margin-index-project move-table-left">
-        <table  class="table table-striped" >
-            <thead>
-            <tr>
-                <th><h5>Job description</h5></th>
-                <th><h5 class="adjust-width">Address</h5></th>
-                <th><h5 class="adjust-width">Date</h5></th>
-                <th><h5 class="adjust-width">Status</h5></th>
-
-            </tr>
-            </thead>
-            <tbody >
-                <tr ng-repeat="job in model.jobs">
-                    <td>{{job.jobDescription}}</td>
-                    <td>{{job.address.street}} {{job.address.apt}} {{job.address.city}}
-                        {{job.address.state}} {{job.address.zip}}</td>
-                    <td>{{job.postedDate}}</td>
-                    <td>{{job.status}}</td>
-
-                </tr>
-            </tbody>
-        </table>
-
-
-    </div>
 </div>
+
 </body>
-</html>

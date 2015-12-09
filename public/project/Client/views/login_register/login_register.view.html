@@ -60,18 +60,19 @@
 </nav>
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="">
-                <br/>
-                <br/>
-                <br/>
-            </div>
-        </div>
+        <!--</div>-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="">
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
 
-        <div class="col-sm-6 main sidebar-style-padding">
-            <h2 class="page-header">Welcome!</h2>
+                <div class="col-sm-6 main sidebar-style-padding">
+                    <h2 class="page-header">Welcome!</h2>
 
                 <span class=" text-primary">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -79,72 +80,70 @@
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </span>
-        </div>
-
-
-        <div class="col-sm-5 main move-complete-signup">
-            <h1 class="page-header move-signup">Sign Up!</h1>
-            <form class="form-horizontal" role="form">
-                <div class="form-group top-margin">
-                    <label class="control-label col-sm-3">First Name</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.firstName" type="text" class="form-control" id="firstName" placeholder="Enter your first name">
-                    </div>
-                </div>
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-3">Last Name</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.lastName" type="text" class="form-control" id="lastName" placeholder="Enter your last name">
-                    </div>
-                </div>
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-3">Username</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.username" type="username" class="form-control" id="username" placeholder="Enter your username">
-                    </div>
-                </div>
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-3">Password</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.password" type="password" class="form-control" id="password" placeholder="Enter your password">
-                    </div>
-                </div>
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-3">Email</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.email" type="email" class="form-control" id="email" placeholder="Enter your email">
-                    </div>
                 </div>
 
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-3">Zip Code</label>
-                    <div class="col-sm-7">
-                        <input ng-model="model.zipcode" type="text" class="form-control" id="zipcode" placeholder="Enter your zipcode">
-                    </div>
-                </div>
 
-                <div class="form-group top-margin-signup">
-                    <label class="control-label col-sm-4">Register as:</label>
-                </div>
-                <div class="form-group top-margin-signup">
-                    <!--<label class="control-label col-sm-4"><a href="/project/client/#/views/home/member">Community Member</a></label>-->
+                <div class="col-sm-5 main move-complete-signup">
+                    <h1 class="page-header move-signup">Sign Up!</h1>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group top-margin">
+                            <label class="control-label col-sm-3">First Name</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.firstName" type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                            </div>
+                        </div>
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-3">Last Name</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.lastName" type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-3">Username</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.username" type="username" class="form-control" id="username" placeholder="Enter your username">
+                            </div>
+                        </div>
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-3">Password</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.password" type="password" class="form-control" id="password" placeholder="Enter your password">
+                            </div>
+                        </div>
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-3">Email</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.email" type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+                        </div>
 
-                    <!--<label class="control-label col-sm-4"><a href="/project/client/#/views/home/volunteer">Volunteer</label>-->
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-3">Zip Code</label>
+                            <div class="col-sm-7">
+                                <input ng-model="model.zipcode" type="text" class="form-control" id="zipcode" placeholder="Enter your zipcode">
+                            </div>
+                        </div>
 
-                    <div class="col-sm-offset-5  col-sm-5 left-align-signup-button">
-                       <button ng-click="model.registerMember('member')" type="submit" class="btn btn-primary btnregister-width btnregister-left active
+                        <div class="form-group top-margin-signup">
+                            <label class="control-label col-sm-4">Register as:</label>
+                        </div>
+                        <div class="form-group top-margin-signup">
+
+                            <div class="col-sm-offset-5  col-sm-5 left-align-signup-button">
+                                <button ng-click="model.registerMember('member')" type="submit" class="btn btn-primary btnregister-width btnregister-left active
                         align-signup-button-together">Community Member</button></a>
-                    </div>
-                    <div class="col-sm-offset-5  col-sm-5 left-align-signup-button">
-                        <button ng-click="model.registerMember('volunteer')" type="submit" class="btn btn-primary btnregister-width btnregister-left active
+                            </div>
+                            <div class="col-sm-offset-5  col-sm-5 left-align-signup-button">
+                                <button ng-click="model.registerMember('volunteer')" type="submit" class="btn btn-primary btnregister-width btnregister-left active
                         align-signup-button-together">Volunteer </button>
-                    </div>
-                </div>
-                </form>
+                            </div>
+                        </div>
+                    </form>
 
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
 
 
 <!-- Bootstrap core JavaScript

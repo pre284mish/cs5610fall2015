@@ -37,7 +37,7 @@
                         <label class="control-label col-sm-3" for="desc">Job Description</label>
 
                         <div class="col-sm-4">
-                <textarea ng-model="model.jobDescription" rows="4" cols="50">
+                <textarea ng-model="model.currentJob.jobDescription" rows="4" cols="50">
                     </textarea>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <label class="control-label col-sm-3" for="add1">Street</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.street" type="text" class="form-control" id="add1"
+                            <input ng-model="model.currentJob.address.street" type="text" class="form-control" id="add1"
                                    placeholder="Street, Apt#">
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <label class="control-label col-sm-3" for="add1">Apt no.</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.apt" type="text" class="form-control" id="add1"
+                            <input ng-model="model.currentJob.address.apt" type="text" class="form-control" id="add1"
                                    placeholder="Street, Apt#">
                         </div>
                     </div>
@@ -64,7 +64,8 @@
                         <label class="control-label col-sm-3" for="city">City</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.city" type="text" class="form-control" id="city" placeholder="City">
+                            <input ng-model="model.currentJob.address.city" type="text" class="form-control" id="city"
+                                   placeholder="City">
                         </div>
                     </div>
 
@@ -72,7 +73,7 @@
                         <label class="control-label col-sm-3" for="city">State</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.state" type="text" class="form-control" id="state"
+                            <input ng-model="model.currentJob.address.state" type="text" class="form-control" id="state"
                                    placeholder="State">
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                         <label class="control-label col-sm-3" for="zipCode">Zip Code</label>
 
                         <div class="col-sm-4">
-                            <input ng-model="model.zip" type="text" class="form-control" id="zipCode"
+                            <input ng-model="model.currentJob.address.zip" type="text" class="form-control" id="zipCode"
                                    placeholder="Your zip code">
                         </div>
                     </div>
@@ -97,8 +98,9 @@
 
                     <div class="form-group top-margin ">
                         <div class="col-sm-offset-3  col-sm-3">
-                            <button ng-click="model.post()" type="submit"
-                                    class="btn btn-primary btnregister-width btnregister-left active" role="button">Post
+                            <button ng-click="model.updateJob(model.currentJob._id)" type="submit"
+                                    class="btn btn-primary btnregister-width btnregister-left active" role="button">
+                                Update Post
                             </button>
                         </div>
                     </div>

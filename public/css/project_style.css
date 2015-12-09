@@ -74,11 +74,11 @@
 
 
   .welcome-left-margin-index-project {
-                    margin-left: -30px;
-                    margin-top: 80px;
-                    margin-right:-90px;
-                    width: 950px
-              }
+        margin-left: -30px;
+        margin-top: 70px;
+        margin-right:-90px;
+        width: 950px
+  }
 
 
   .listing-label-align{
@@ -106,6 +106,10 @@
     width: 170px;
   }
 
+  .adjust-width-status{
+      width: 100px;
+    }
+
   .align-dropdown{
     margin-left:250px;
   }
@@ -114,8 +118,27 @@
     margin-left: 17px;
   }
 
+  .adjust-input-width{
+    width: 159px;
+    height: 33px;
+  }
+
+  .align-right-search{
+    margin-left: 500px;
+    margin-top: 20px;
+  }
+
+  .align-search-button{
+    margin-left: 0px;
+  }
+
+  .move-search-right{
+    margin-left: 500px;
+    width: 330px;
+  }
+
   .addjob-button-align{
-  margin-top: 20px;
+    margin-top: 20px;
     width: 134px;
     height: 34px;
     padding-top: 6px;
@@ -135,4 +158,8 @@
 
     .align-left-username{
         margin-right: 20px;
+    }
+
+    .spacing-between-glyphicon{
+        padding-right: 20px;
     }

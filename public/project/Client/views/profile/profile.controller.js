@@ -7,7 +7,7 @@
         function ProfileController($scope, $rootScope, UserService){
 
             console.log("Profile controller Userid:: "+$rootScope.currentUserId);
-
+            console.log("User's role::"+$rootScope.role)
 
                 UserService.findUserById($rootScope.currentUserId)
                     .then(function(user){
@@ -19,6 +19,7 @@
 
             var model = this;
             model.update = update;
+            model.role = $rootScope.role;
 
             function update(){
             alert("update");

@@ -1,6 +1,5 @@
 <body>
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
 
@@ -12,7 +11,7 @@
             <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
                 <!--<li ng-class = "{'active' : $location.url().indexOf('register') != -1}"><a href="#/register"><h5>Register</h5></a></li>-->
                 <!--<li ng-class = "{'active' : $location.url().indexOf('login') != -1}"><a href="#/login_register"><h5>Login</h5></a></li>-->
-                <li><a a href="#/my_jobs"><h5>My Jobs</h5></a></li>
+                <li><a a href="#/my_listings"><h5>My Listings</h5></a></li>
                 <li><a a href="#/profile"><h5>Username's Profile</h5></a></li>
                 <li><a><h5>Logout</h5></a></li>
             </ul>
@@ -21,7 +20,6 @@
     </div>
 
 </nav>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 remove-left-padding">
@@ -34,31 +32,36 @@
 
                 <div class="col-sm-9 main welcome-left-margin-index-project">
                     <div class="form-group top-margin-project-home">
-                        <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>My Jobs:</h3>
-                        </label>
-
+                        <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>{{model.category}}
+                            Jobs:</h3></label>
+                        <!--<div class="col-sm-3">-->
+                        <!--<input  type="text" class=" align-pincode-textbox" id="pincode" placeholder="98237">-->
+                        <!--</div>-->
                         <div class="dropdown col-sm-3 align-dropdown">
                             <button class="btn btn-default dropdown-toggle align-pincode-textbox" type="textbox"
                                     id="menu1" data-toggle="dropdown">Filter by status
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu align-dropdown-menu" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/my_jobs"
-                                                           ng-click="model.getFilteredJobsMyJobs('Acquired')">Acquired</a>
+                                                           href="#/category/{{role}}/{{model.category}}"
+                                                           ng-click="model.getFilteredJobs('Acquired')">Acquired</a>
                                 </li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/my_jobs"
-                                                           ng-click="model.getFilteredJobsMyJobs('Completed')">Completed</a>
+                                                           href="#/category/{{role}}/{{model.category}}"
+                                                           ng-click="model.getFilteredJobs('Completed')">Completed</a>
                                 </li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/my_jobs"
-                                                           ng-click="model.getFilteredJobsMyJobs('Pending')">Pending</a>
-                                </li>
+                                                           href="#/category/{{role}}/{{model.category}}"
+                                                           ng-click="model.getFilteredJobs('Pending')">Pending</a></li>
                             </ul>
+                            <!--<button ng-click="model.filter()" class="btn btn-primary"> Filter</button>-->
                         </div>
+
+                        <a href="#/add_job">
+                            <button class="btn btn-primary col-sm-3 addjob-button-align">Add a new job</button>
+                        </a>
                     </div>
                 </div>
-
 
                 <div class="col-sm-9 welcome-left-margin-index-project move-table-left">
                     <table class="table table-striped">
@@ -67,9 +70,8 @@
                             <th><h5 class="adjust-width">Job description</h5></th>
                             <th><h5 class="adjust-width">Address</h5></th>
                             <th><h5 class="adjust-width">Date</h5></th>
-                            <th><h5 class="adjust-width-status">Status</h5></th>
-                            <th><h5 class="adjust-width-status">Posted By</h5></th>
-                            <th><h5 class="adjust-width-status"></h5></th>
+                            <th><h5 class="adjust-width">Status</h5></th>
+                            <th><h5 class="adjust-width">Posted by</h5></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -81,16 +83,6 @@
                             <td>{{job.postedDate}}</td>
                             <td>{{job.status}}</td>
                             <td>{{job.postedBy.firstname}} {{job.postedBy.lastname}}</td>
-                            <td ng-show="(job.status && job.status == 'Acquired')">
-                                <button ng-click="model.markCompleted(job._id)" class="btn btn-primary">Mark as
-                                    Completed
-                                </button>
-                            </td>
-                            <td ng-show="(job.status && job.status == 'Completed')">
-                                <button ng-click="model.markAcquired(job._id)" class="btn btn-primary">Mark as
-                                    Acquired
-                                </button>
-                            </td>
                         </tr>
                         </tbody>
                     </table>

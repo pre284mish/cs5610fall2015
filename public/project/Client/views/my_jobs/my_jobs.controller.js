@@ -8,6 +8,8 @@
 
         var model = this;
         model.markCompleted = markCompleted;
+        model.markAcquired = markAcquired;
+        model.getFilteredJobsMyJobs = getFilteredJobsMyJobs;
         getMyJobs($rootScope.currentUserId);
 
         console.log("My job controller user::"+ $rootScope.currentUserId);
@@ -23,12 +25,32 @@
         }
 
         function markCompleted(jobId){
-              var jobObj = {status: "Completed", _id: jobId};
+              var jobObj = {status: "Completed"};
               JobService.markCompleted(jobId, jobObj)
                       .then(function(job){
                            model.jobs = job;
                            getMyJobs($rootScope.currentUserId);
             });
+        }
+
+        function markAcquired(jobId){
+            alert("HII");
+              var jobObj = {status: "Acquired"};
+              JobService.markCompleted(jobId, jobObj)
+                      .then(function(job){
+                           model.jobs = job;
+                           getMyJobs($rootScope.currentUserId);
+            });
+        }
+
+        function getFilteredJobsMyJobs(status){
+            console.log("get status:" + status + $rootScope.currentUserId);
+            JobService.findAllJobsByStatusAndAcquiredById(status, $rootScope.currentUserId)
+                        .then(function(jobs){
+                        console.log("All the filtered my listings jobs:"+JSON.stringify(jobs, null, 4));
+                             model.jobs = jobs;
+                        })
+
         }
 
 

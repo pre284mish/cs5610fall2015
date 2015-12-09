@@ -1,18 +1,18 @@
-
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" >
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
 
         <div class="navbar-header">
             <a class="navbar-brand align-formaker-up" href="#/home"><h2>Come Unite</h2></a>
         </div>
 
-        <div  class="container">
+        <div class="container">
             <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
-                <!--<li ng-class = "{'active' : $location.url().indexOf('register') != -1}"><a href="#/register"><h5>Register</h5></a></li>-->
-                <!--<li ng-class = "{'active' : $location.url().indexOf('login') != -1}"><a href="#/login_register"><h5>Login</h5></a></li>-->
-                <li><a a href="#/my_listings"><h5>My Listings</h5></a></li>
-                <li><a a href="#/profile"><h5>Username's Profile</h5></a></li>
+                <li ng-show="(model.role && model.role == 'member')"><a a href="#/my_listings"><h5>My Listings</h5></a>
+                </li>
+                <li ng-show="(model.role && model.role == 'volunteer')"><a a href="#/my_jobs"><h5>My Jobs</h5></a></li>
+                <li><a a href="#/profile"><h5>{{model.currentUser.firstname}}'s Profile</h5></a></li>
                 <li><a><h5>Logout</h5></a></li>
             </ul>
         </div>
@@ -20,79 +20,80 @@
     </div>
 
 </nav>
-
-
-<!--<nav class="navbar navbar-inverse navbar-fixed-top" >-->
-    <!--<div class="container-fluid">-->
-
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand align-formaker-up" href="#/home"><h2>Come Unite</h2></a>-->
-        <!--</div>-->
-
-        <!--<div  class="container">-->
-            <!--<ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">-->
-                <!--<li><a a href="#/my_jobs"><h5>My Jobs</h5></a></li>-->
-                <!--<li><a a href="#/profile"><h5>Username's Profile</h5></a></li>-->
-                <!--<li><a><h5>Logout</h5></a></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-
-    <!--</div>-->
-
-<!--</nav>-->
-
-
-<div class="col-sm-10 main welcome-left-margin-index-project">
-
-
-    <form class="form-horizontal" role="form">
-
-        <h2 class="page-header">Your Profile</h2>
-
-
-        <div class="form-group top-margin">
-            <label class="control-label col-sm-3" for="firstName">First Name</label>
-            <div class="col-sm-4">
-                <input ng-model="model.currentUser.firstname" type="text" class="form-control" id="firstName" placeholder="Your first name">
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 remove-left-padding">
+            <div ng-include="'views/sidebar/sidebar.view.html' "></div>
         </div>
 
-        <div class="form-group top-margin">
-            <label class="control-label col-sm-3" for="lastName">Last Name</label>
-            <div class="col-sm-4">
-                <input ng-model="model.currentUser.lastname" type="text" class="form-control" id="lastName" placeholder="Your last name">
+        <div class="col-sm-9">
+
+            <div class="col-sm-10 main welcome-left-margin-index-project">
+
+
+                <form class="form-horizontal" role="form">
+
+                    <h2 class="page-header">Your Profile</h2>
+
+                    <!--{{model.role}}-->
+                    <div class="form-group top-margin">
+                        <label class="control-label col-sm-3" for="firstName">First Name</label>
+
+                        <div class="col-sm-4">
+                            <input ng-model="model.currentUser.firstname" type="text" class="form-control"
+                                   id="firstName" placeholder="Your first name">
+                        </div>
+                    </div>
+
+                    <div class="form-group top-margin">
+                        <label class="control-label col-sm-3" for="lastName">Last Name</label>
+
+                        <div class="col-sm-4">
+                            <input ng-model="model.currentUser.lastname" type="text" class="form-control" id="lastName"
+                                   placeholder="Your last name">
+                        </div>
+                    </div>
+
+                    <div class="form-group top-margin">
+                        <label class="control-label col-sm-3" for="email">Email</label>
+
+                        <div class="col-sm-4">
+                            <input ng-model="model.currentUser.email" type="email" class="form-control" id="email"
+                                   placeholder="e.g. email@hotmail.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group top-margin">
+                        <label class="control-label col-sm-3" for="pwd">Password</label>
+
+                        <div class="col-sm-4">
+                            <input ng-model="model.currentUser.password" type="password" class="form-control" id="pwd"
+                                   placeholder="Your password">
+                        </div>
+                    </div>
+
+                    <div class="form-group top-margin">
+                        <label class="control-label col-sm-3" for="zipCode">Zip Code</label>
+
+                        <div class="col-sm-4">
+                            <input ng-model="model.currentUser.zipcode" type="text" class="form-control" id="zipCode"
+                                   placeholder="Your zip code">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group top-margin ">
+                        <div class="col-sm-offset-3  col-sm-3">
+                            <button ng-click="model.update()" type="submit"
+                                    class="btn btn-primary btnregister-width btnregister-left active" role="button">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
-
-        <div class="form-group top-margin">
-            <label class="control-label col-sm-3" for="email">Email</label>
-            <div class="col-sm-4">
-                <input ng-model="model.currentUser.email" type="email" class="form-control" id="email" placeholder="e.g. email@hotmail.com">
-            </div>
-        </div>
-
-        <div class="form-group top-margin">
-            <label class="control-label col-sm-3" for="pwd">Password</label>
-            <div class="col-sm-4">
-                <input  ng-model="model.currentUser.password" type="password" class="form-control" id="pwd" placeholder="Your password">
-            </div>
-        </div>
-
-        <div class="form-group top-margin">
-            <label class="control-label col-sm-3" for="zipCode">Zip Code</label>
-            <div class="col-sm-4">
-                <input  ng-model="model.currentUser.zipcode" type="text" class="form-control" id="zipCode" placeholder="Your zip code">
-            </div>
-        </div>
-
-
-
-        <div class="form-group top-margin ">
-            <div class="col-sm-offset-3  col-sm-3">
-                <button ng-click="model.update()" type="submit" class="btn btn-primary btnregister-width btnregister-left active" role="button">Update</button>
-            </div>
-        </div>
-    </form>
-
+    </div>
 </div>
 </body>
