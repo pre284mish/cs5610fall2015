@@ -8,10 +8,10 @@ module.exports = function(mongoose) {
             jobDescription: String,
             postedDate: {type: Date, default: Date.now},
             status: String,
-            userId : String,
+//            userId : String,
             postedBy: UserSchema,
             address: AddressSchema,
-            acquiredById: String,
+//            acquiredById: String,
             acquiredBy: UserSchema
         }, {collection: "cs5610.project.job"});
 

@@ -76,7 +76,8 @@
                                 {{job.address.state}} {{job.address.zip}}
                             </td>
                             <td>{{job.postedDate}}</td>
-                            <td>{{job.status}}</td>
+                            <td ng-show="(job.status && job.status == 'Acquired')">{{job.status}} <br> By {{job.acquiredBy.firstname}}</td>
+                            <td ng-show="(job.status && job.status != 'Acquired')">{{job.status}}</td>
                             <td>
                                 <a ng-click="model.editJob(job._id)">
                                     <span class="glyphicon glyphicon-pencil spacing-between-glyphicon"
