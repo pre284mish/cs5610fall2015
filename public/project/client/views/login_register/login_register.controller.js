@@ -30,6 +30,10 @@
 //        alert("username: "+ model.loginUsername);
                     UserService.findUserByUsernameAndPassword(model.loginUsername, model.loginPassword)
                             .then(function(user){
+                            console.log("login user error: "+ JSON.stringify(user, null, 4))
+                                if(user == "" || user =="undefined" || user == "null"){
+                                    model.showErrorMsg = "Error";
+                                }else{
                                 console.log("login user: "+ JSON.stringify(user, null, 4))
                                 console.log("login userID: "+ user[0]._id);
                                 console.log("login password: "+ user[0].password);
@@ -37,6 +41,7 @@
                                 $routeParams.role = user[0].role;
                                 $rootScope.role = user[0].role;
                                 $location.url("/profile");
+                                }
                             })
                 }
     }

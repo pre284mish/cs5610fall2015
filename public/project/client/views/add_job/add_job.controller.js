@@ -7,6 +7,7 @@
         var model = this;
         model.post = post;
         model.category = $rootScope.category;
+        model.logout = logout;
 
         console.log("AddJobController: " + $rootScope.role + $rootScope.category);
         function post(){
@@ -24,12 +25,14 @@
                                             console.log("register controller userId new: "+job._id);
                                             $rootScope.currentUserId = userId;
                                              $location.path('/category/'+ role + '/' + category);
-                                    });
+                                         });
+                        });
+            }
 
 
-                    });
-
-
-        }
+        function logout(){
+              $rootScope.currentUserId = null;
+              $location.url("/home");
+          }
     }
 })();

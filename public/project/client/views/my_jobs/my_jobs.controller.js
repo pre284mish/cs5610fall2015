@@ -11,6 +11,7 @@
         model.markAcquired = markAcquired;
         model.getFilteredJobsMyJobs = getFilteredJobsMyJobs;
         getMyJobs($rootScope.currentUserId);
+        model.logout = logout;
 
         console.log("My job controller user::"+ $rootScope.currentUserId);
          function getMyJobs(userId) {
@@ -34,7 +35,6 @@
         }
 
         function markAcquired(jobId){
-            alert("HII");
               var jobObj = {status: "Acquired"};
               JobService.markCompleted(jobId, jobObj)
                       .then(function(job){
@@ -52,6 +52,11 @@
                         })
 
         }
+
+        function logout(){
+             $rootScope.currentUserId = null;
+             $location.url("/home");
+         }
 
 
 

@@ -16,20 +16,9 @@
         };
         return service;
 
-
-//        function generateGuid() {
-//          function s4() {
-//            return Math.floor((1 + Math.random()) * 0x10000)
-//              .toString(16)
-//              .substring(1);
-//          }
-//          return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-//            s4() + '-' + s4() + s4() + s4();
-//        }
-
         function findAllUsers() {
             var deferred = $q.defer();
-            $http.get("/api/assignment/user/")
+            $http.get("/api/project/user/")
                     .success(function(users){
                         deferred.resolve(users);
                     });
@@ -38,7 +27,7 @@
 
         function findUserById(userId) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/user/id="+ userId)
+            $http.get("/api/project/user/id="+ userId)
                     .success(function(user){
                     console.log("find by id"+user.username+"for "+ userId);
                         deferred.resolve(user);
@@ -48,7 +37,7 @@
 
         function findUserByUsernameAndPassword(username, password) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/user/username=" + username +"&password=" + password)
+            $http.get("/api/project/user/username=" + username +"&password=" + password)
                     .success(function(user){
                     console.log("UserService.js: "+ JSON.stringify(user, null, 4))
                         deferred.resolve(user);
@@ -60,7 +49,7 @@
         function createUser(userObj){
 
             var deferred = $q.defer();
-            $http.post("/api/assignment/user/", userObj)
+            $http.post("/api/project/user/", userObj)
                 .success(function (response) {
                 console.log("Create user Userservice: "+ JSON.stringify(response, null, 4))
                     deferred.resolve(response);
@@ -71,7 +60,7 @@
 
         function deleteUserById(userId){
             var deferred = $q.defer();
-            $http.delete("/api/assignment/user/" + userId)
+            $http.delete("/api/project/user/" + userId)
                 .success(function(user){
                     deferred.resolve(user);
                 });
@@ -80,7 +69,7 @@
 
         function updateUser(userId, userObj){
             var deferred = $q.defer();
-            $http.put("/api/assignment/user/id=" + userId, userObj)
+            $http.put("/api/project/user/id=" + userId, userObj)
                     .success(function(user){
                         deferred.resolve(user);
                     });

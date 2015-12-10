@@ -12,6 +12,7 @@
         model.deleteJob = deleteJob;
         model.editJob = editJob;
         model.comment = comment;
+        model.logout = logout;
 
          function getMyListings(userId) {
             console.log("get all jobs of userId:" + userId);
@@ -49,6 +50,11 @@
          function comment(jobId){
             $location.url("/comment");
             $rootScope.jobId = jobId;
+         }
+
+         function logout(){
+             $rootScope.currentUserId = null;
+             $location.url("/home");
          }
 
     }

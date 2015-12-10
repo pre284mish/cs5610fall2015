@@ -21,6 +21,7 @@
             var model = this;
             model.update = update;
             model.role = $rootScope.role;
+            model.logout = logout;
 
             function update(){
                 console.log(model.currentUser.username);
@@ -30,6 +31,12 @@
                             $rootScope.currentUser = user;
                         })
             }
+
+            function logout(){
+                    $rootScope.currentUserId = null;
+                    console.log("Root scope:"+JSON.stringify($rootScope.currentUserId, null, 4));
+                    $location.url("/home");
+                }
 
         }
 })();

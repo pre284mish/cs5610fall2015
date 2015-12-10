@@ -8,10 +8,9 @@
 
         var model = this;
         model.commentForJob = commentForJob;
-
+        model.logout = logout;
 
          function commentForJob(){
-
              console.log("jobId in comment controller::"+ $rootScope.jobId + model.comment);
              var jobObj = {comment : model.comment};
              JobService.updateJob($rootScope.jobId, jobObj)
@@ -20,5 +19,10 @@
                           $location.url("/my_listings");
                      });
              }
+
+         function logout(){
+              $rootScope.currentUserId = null;
+              $location.url("/home");
+          }
     }
 })();

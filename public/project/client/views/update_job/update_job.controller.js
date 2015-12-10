@@ -9,6 +9,7 @@
         var model = this;
         loadJobDetailsForUpdate($rootScope.jobId);
         model.updateJob = updateJob;
+        model.logout = logout;
 
 
 
@@ -32,10 +33,16 @@
              JobService.updateJob(jobId, jobObj)
                      .then(function(job){
                           model.jobs = job;
-//                          model.myDate = new Date(model.jobs.postedDate);
-                            $rootScope.myDate = new Date('2014-03-08T00:00:00');
+//                            $rootScope.myDate = new Date(job.postedDate);
                             $location.url("/my_listings");
                      });
              }
+
+
+         function logout(){
+             $rootScope.currentUserId = null;
+             console.log("Root scope:"+JSON.stringify($rootScope.currentUserId, null, 4));
+             $location.url("/home");
+         }
     }
 })();

@@ -4,7 +4,7 @@
         .module("CommunityBuilderApp")
         .controller("CategoryController", CategoryController);
 
-    function CategoryController($rootScope, $routeParams, UserService, JobService) {
+    function CategoryController($rootScope, $routeParams, $location, UserService, JobService) {
 
         $rootScope.role = $routeParams.role;
         $rootScope.category = $routeParams.category;
@@ -17,6 +17,7 @@
         model.acquire = acquire;
         model.getFilteredJobs = getFilteredJobs;
         model.searchByPin = searchByPin;
+        model.logout = logout;
 
 
      function updateModel(category) {
@@ -63,6 +64,12 @@
                  model.jobs = jobs;
             })
 
+    }
+
+    function logout(){
+        $rootScope.currentUserId = null;
+        console.log("Root scope:"+JSON.stringify($rootScope.currentUserId, null, 4));
+        $location.url("/home");
     }
 
     }

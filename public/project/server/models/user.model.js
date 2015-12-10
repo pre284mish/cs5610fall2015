@@ -39,17 +39,6 @@ module.exports = function(db, mongoose){
         return deferred.promise;
     }
 
-//     function generateGuid() {
-//          function s4() {
-//            return Math.floor((1 + Math.random()) * 0x10000)
-//              .toString(16)
-//              .substring(1);
-//          }
-//          return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-//            s4() + '-' + s4() + s4() + s4();
-//    }
-
-
     function findById(userId){
         var deferred = q.defer();
         UserModel.findById(userId, function(err, doc){
@@ -61,10 +50,6 @@ module.exports = function(db, mongoose){
 
     function updateUser(userId, userObj){
         var deferred = q.defer();
-
-        //For openshift delete userId before updating a user
-        delete userObj._id;
-
         UserModel.update({_id: userId},{$set: userObj}, function(err, doc){
             if(err){
                 deferred.reject(err);
@@ -96,11 +81,13 @@ module.exports = function(db, mongoose){
     function findUserByCredentials(credentials){
         var deferred = q.defer();
         UserModel.find({$and: [{username: credentials.username}, {password: credentials.password}]}, function(err, doc){
-            console.log("User.model.js doc: "+ JSON.stringify(doc, null, 4))
-            console.log("User.model.js err: "+ JSON.stringify(err, null, 4))
-
+        if(err){
+                deferred.reject(err);
+            }else{
             deferred.resolve(doc);
+            }
         });
+
         return deferred.promise;
     }
 

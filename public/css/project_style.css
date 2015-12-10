@@ -169,3 +169,8 @@
     .spacing-between-glyphicon{
         padding-right: 20px;
     }
+
+    .center{
+      float: center;
+      }
+

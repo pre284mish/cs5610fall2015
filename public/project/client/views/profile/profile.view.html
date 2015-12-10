@@ -23,7 +23,7 @@
                     <li ng-show="(model.role && model.role == 'volunteer')"><a href="#/my_jobs"><h5>My Jobs</h5></a>
                     </li>
                     <li><a href="#/profile"><h5>{{model.currentUser.firstname}}'s Profile</h5></a></li>
-                    <li><a><h5>Logout</h5></a></li>
+                    <li><a href="" ng-click="model.logout()"><h5>Logout</h5></a></li>
                 </ul>
             </div>
         </div>

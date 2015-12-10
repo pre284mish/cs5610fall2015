@@ -19,7 +19,7 @@
                 <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
                     <li><a href="#/my_jobs"><h5>My Jobs</h5></a></li>
                     <li><a href="#/profile"><h5>{{currentUser.firstname}}'s Profile</h5></a></li>
-                    <li><a><h5>Logout</h5></a></li>
+                    <li><a href="" ng-click="model.logout()"><h5>Logout</h5></a></li>
                 </ul>
             </div>
         </div>
@@ -97,7 +97,7 @@
                             <td>{{job.address.street}} {{job.address.apt}} {{job.address.city}}
                                 {{job.address.state}} {{job.address.zip}}
                             </td>
-                            <td>{{job.postedDate}}</td>
+                            <td>{{job.postedDate | date:'MM/dd/yyyy'}}</td>
                             <td ng-show="(job.status && job.status == 'Acquired')">{{job.status}} <br> By {{job.acquiredBy.firstname}}</td>
                             <td ng-show="(job.status && job.status != 'Acquired')">{{job.status}}</td>
                             <td>{{job.postedBy.firstname}} {{job.postedBy.lastname}}</td>

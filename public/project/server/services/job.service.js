@@ -16,7 +16,6 @@ module.exports = function(app, model){
 
     function findAllJobsByCategory(req, res){
         var category = req.params.category;
-        console.log("User at job.service findallForms" + category);
         model.findAllJobsByCategory(category)
         .then (function(jobs){
              res.json(jobs);
@@ -26,7 +25,6 @@ module.exports = function(app, model){
     function createJobByUser(req, res){
         var jobObj = req.body;
         var userId = req.params.userId;
-        console.log("create form:" + JSON.stringify(jobObj, null, 4)+ "for :"+userId);
         model.createJobByUser(jobObj)
         .then (function(jobs){
              res.json(jobs);
@@ -35,7 +33,6 @@ module.exports = function(app, model){
 
     function findAllJobsByUserId(req, res){
         var userId = req.params.userId;
-        console.log("User at JobService findallJobs" + userId)
         model.findAllJobsByUserId(userId)
         .then (function(jobs){
              res.json(jobs);
@@ -44,7 +41,6 @@ module.exports = function(app, model){
 
     function findJobByJobId(req, res){
             var jobId = req.params.jobId;
-            console.log("User at JobService find Job by ID" + jobId)
             model.findJobByJobId(jobId)
             .then (function(job){
                  res.json(job);
@@ -53,7 +49,6 @@ module.exports = function(app, model){
 
     function findAllJobsByAcquiredBy(req, res){
         var userId = req.params.userId;
-        console.log("AcquiredBy User at JobService findAllJobsByAcquiredBy" + userId)
         model.findAllJobsByAcquiredBy(userId)
         .then (function(jobs){
              res.json(jobs);
@@ -63,7 +58,6 @@ module.exports = function(app, model){
     function findAllJobsByPinCode(req, res){
             var pinCode = req.params.pinCode;
             var category = req.params.category
-            console.log("pinCode at JobService findAllJobsByPinCode" + pinCode + category)
             model.findAllJobsByPinCode(pinCode, category)
                 .then (function(jobs){
                     res.json(jobs);
@@ -76,24 +70,15 @@ module.exports = function(app, model){
                 "category" : req.params.category,
                 "status" : req.params.status
                 }
-                console.log("param category in job service"+ req.params.category);
-                console.log("param status in job service"+ req.params.status);
-
             model.findAllJobsByCategoryAndStatus(params)
             .then (function(job){
-                    console.log("job.service.js: "+ JSON.stringify(job, null, 4));
-
-                    console.log("user.service.js category "+ job.category);
-                    console.log("user.service.js status "+ job.status);
                 res.json(job);
             });
         }
 
      function updateJob(req, res){
             var id = req.params.id;
-            console.log("update job service server:"+id);
             var updatedJobObj = req.body;
-            console.log("update job service server body "+ JSON.stringify(updatedJobObj, null, 4));
             console.log(JSON.stringify(updatedJobObj, null, 4));
             model.updateJob(id, updatedJobObj)
             .then (function(job){
@@ -116,7 +101,6 @@ module.exports = function(app, model){
         function findAllJobsByStatusAndAcquiredById(req, res){
             var userId = req.params.userId;
             var status = req.params.status;
-            console.log("Job at job.service filter" + status + userId);
             model.findAllJobsByStatusAndAcquiredById(status, userId)
                 .then (function(jobs){
                     res.json(jobs);
@@ -127,7 +111,6 @@ module.exports = function(app, model){
         function findAllJobsByStatusAndUserId(req, res){
             var userId = req.params.userId;
             var status = req.params.status;
-            console.log("Job at job.service filter" + status + userId);
             model.findAllJobsByStatusAndUserId(status, userId)
                 .then (function(jobs){
                     res.json(jobs);

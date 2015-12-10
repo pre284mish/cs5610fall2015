@@ -114,9 +114,6 @@ module.exports = function(db, mongoose){
         function updateJob(jobId, jobObj){
             var deferred = q.defer();
 
-            //For openshift delete userId before updating a user
-//            delete userObj._id;
-
                 JobModel.update({_id: jobId},{$set: jobObj}, function(err, job){
                 if(err){
                 console.log("update job model err: "+ JSON.stringify(err, null, 4))
@@ -134,9 +131,6 @@ module.exports = function(db, mongoose){
 
         function markCompleted(jobId, jobObj){
             var deferred = q.defer();
-
-            //For openshift delete userId before updating a user
-//            delete userObj._id;
 
                 JobModel.update({_id: jobId},{$set: jobObj}, function(err, job){
                 if(err){

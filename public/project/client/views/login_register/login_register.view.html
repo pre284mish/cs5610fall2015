@@ -18,6 +18,7 @@
             <form class="" role="form">
                 <div  class="container login-header-height">
                     <ul class="nav navbar-nav navbar-right nav-pills ">
+
                         <li class="align-left-username">
                             <h5 class="set-color-for-labels">Username</h5>
                             <input ng-model="model.loginUsername" type="username" class="form-control align-login" id="loginUsername">
@@ -26,7 +27,9 @@
                             <h5 class="set-color-for-labels">Password</h5>
                             <input ng-model="model.loginPassword" type="password" class="form-control align-login" id="loginPassword">
                         </li>
+
                         <li>
+
                             <button ng-click="model.login()" type="submit" class="btn btn-primary btn-login-align
                         active">Login </button>
                         </li>
@@ -47,16 +50,17 @@
                 <div class="col-sm-6 main">
                     <h2 class="page-header">Welcome!</h2>
 
-                <span class=" text-primary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                <span class="text-primary">
+                    <h3>Connect with neighbors and<br>
+                         the world around you on Come Unite.</h3>
                 </span>
                 </div>
 
 
                 <div class="col-sm-5 main ">
+                    <label class="set-color-for-labels" ng-show="(model.showErrorMsg && model.showErrorMsg == 'Error')"><h4><font color="red">Invalid Username or Password</font></h4>
+                    </label>
                     <h1 class="page-header move-signup">Sign Up!</h1>
                     <form class="form-horizontal" role="form">
                         <div class="form-group top-margin">
