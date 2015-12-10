@@ -4,7 +4,7 @@
         .module("CommunityBuilderApp")
         .controller("MyJobsController", MyJobsController);
 
-    function MyJobsController($rootScope, $routeParams, JobService) {
+    function MyJobsController($rootScope, $routeParams, $location, JobService) {
 
         var model = this;
         model.markCompleted = markCompleted;

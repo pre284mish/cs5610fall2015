@@ -4,7 +4,7 @@
         .module("CommunityBuilderApp")
         .controller("ProfileController", ProfileController);
 
-        function ProfileController($scope, $rootScope, UserService){
+        function ProfileController($scope, $rootScope, $location, UserService){
 
             console.log("Profile controller Userid:: "+$rootScope.currentUserId);
             console.log("User's role::"+$rootScope.role)
