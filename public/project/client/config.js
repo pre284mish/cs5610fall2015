@@ -12,11 +12,7 @@
 
             $routeProvider
                         .when("/home", {
-                            templateUrl: function(elem, attrs) {
-                                return 'views/home/home.html'
-                            },
-                            controller: 'HomeController',
-                            controllerAs: "model"
+                            templateUrl: "views/home/home.html"
                         })
                         .when("/category/:role/:category", {
                             templateUrl: function(elem, attrs) {
