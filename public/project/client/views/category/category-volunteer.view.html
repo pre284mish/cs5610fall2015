@@ -68,13 +68,18 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12">
+                <div class="col-sm-6 right">
                     <br>
-                    <br>
-                    <input class="form-control" ng-model="model.pincode" placeholder="Enter zipcode" type="text"/>
-                    <button ng-click="model.searchByPin()" type="submit" class="btn btn-primary btn-block"><span
-                            class="glyphicon glyphicon-search"></span> Search
-                    </button>
+
+                    <div class="col-sm-6">
+
+                        <input class="form-control" ng-model="model.pincode" placeholder="Enter zipcode" type="text"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <button ng-click="model.searchByPin()" type="submit" class="btn btn-primary btn-block"><span
+                                class="glyphicon glyphicon-search"></span> Search
+                        </button>
+                    </div>
                 </div>
 
                 <div class="col-sm-9 col-lg-12  remove-left-padding">
