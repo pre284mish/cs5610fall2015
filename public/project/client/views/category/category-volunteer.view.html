@@ -18,7 +18,7 @@
             <div class="container">
                 <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
                     <li><a href="#/my_jobs"><h5>My Jobs</h5></a></li>
-                    <li><a href="#/profile"><h5>{{model.currentUser.firstname}}'s Profile</h5></a></li>
+                    <li><a href="#/profile"><h5>{{currentUser.firstname}}'s Profile</h5></a></li>
                     <li><a><h5>Logout</h5></a></li>
                 </ul>
             </div>
@@ -28,67 +28,67 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 remove-left-padding">
-            <div ng-include="'views/sidebar/sidebar.view.html' "></div>
-        </div>
+        <div class="col-sm-12 remove-left-padding">
+            <div class="col-sm-4 col-lg-3 remove-left-padding">
+                <div ng-include="'views/sidebar/sidebar.view.html' "></div>
+            </div>
 
-        <div class="col-sm-9">
+            <div class="col-sm-8 col-lg-8">
+                <!--<div class="container-fluid">-->
+                <br>
+                <br>
+                <br>
+                <br>
 
-            <div class="container-fluid">
+                <div class="main">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="listings"><h3>{{model.category}}
+                            Jobs:</h3>
+                        </label>
 
-                <div class="col-sm-9 main welcome-left-margin-index-project">
-                    <div class="form-group top-margin-project-home">
-                        <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>{{model.category}}
-                            Jobs:</h3></label>
-                        <!--<div class="col-sm-3">-->
-                        <!--<input  type="text" class=" align-pincode-textbox" id="pincode" placeholder="98237">-->
-                        <!--</div>-->
-                        <div class="dropdown col-sm-3 align-dropdown">
+                        <div class="dropdown col-sm-3 right">
                             <button class="btn btn-default dropdown-toggle align-pincode-textbox" type="textbox"
                                     id="menu1" data-toggle="dropdown">Filter by status
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu align-dropdown-menu" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/category/{{role}}/{{model.category}}"
-                                                           ng-click="model.getFilteredJobs('Acquired')">Acquired</a>
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Acquired')">Acquired</a>
                                 </li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/category/{{role}}/{{model.category}}"
-                                                           ng-click="model.getFilteredJobs('Completed')">Completed</a>
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Completed')">Completed</a>
                                 </li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                           href="#/category/{{role}}/{{model.category}}"
-                                                           ng-click="model.getFilteredJobs('Pending')">Pending</a></li>
+                                                           href="#/my_listings"
+                                                           ng-click="model.getFilteredJobsMyListings('Pending')">Pending</a>
+                                </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
 
-                <div class="col-sm-9 main move-search-right">
-                    <div class="form-group">
-
-                        <input class="control-label adjust-input-width col-sm-6" ng-model="model.pincode"
-                               type="text" class="form-control" id="pincode" placeholder="Pin Code">
-
-                        <div class="dropdown col-sm-3 align-search-button">
-                            <button ng-click="model.searchByPin()" type="submit" class="btn btn-primary"><span
-                                    class="glyphicon glyphicon-search"></span> Search
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-sm-12">
+                    <br>
+                    <br>
+                    <input class="form-control" ng-model="model.pincode" placeholder="Enter zipcode" type="text"/>
+                    <button ng-click="model.searchByPin()" type="submit" class="btn btn-primary btn-block"><span
+                            class="glyphicon glyphicon-search"></span> Search
+                    </button>
                 </div>
 
-                <div class="col-sm-9 welcome-left-margin-index-project move-table-left">
+                <div class="col-sm-9 col-lg-12  remove-left-padding">
+                    <br>
+                    <br>
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th><h5 class="adjust-width">Job description</h5></th>
-                            <th><h5 class="adjust-width">Address</h5></th>
-                            <th><h5 class="adjust-width">Date</h5></th>
-                            <th><h5 class="adjust-width-status">Status</h5></th>
-                            <th><h5 class="adjust-width-status">Posted by</h5></th>
-                            <th><h5 class="adjust-width-status"></h5></th>
+                            <th><h5 class="col-sm-1 ">Job description</h5></th>
+                            <th><h5 class="col-sm-1 ">Address</h5></th>
+                            <th><h5 class="col-sm-1 ">Date</h5></th>
+                            <th><h5 class="col-sm-1 ">Status</h5></th>
+                            <th><h5 class="col-sm-1 ">Posted by</h5></th>
+                            <th><h5 class="col-sm-3 "></h5></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -110,7 +110,7 @@
 
 
                 </div>
-            </div>
+        </div>
         </div>
     </div>
 </div>

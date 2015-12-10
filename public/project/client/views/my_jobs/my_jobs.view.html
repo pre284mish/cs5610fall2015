@@ -2,42 +2,46 @@
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-
+    <div class="container-fluid header-width-login">
         <div class="navbar-header">
-            <a class="navbar-brand align-formaker-up" href="#/home"><h2>Come Unite</h2></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand align-formaker-up" href="#/home">Come Unite</a>
         </div>
 
-        <div class="container">
-            <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
-                <!--<li ng-class = "{'active' : $location.url().indexOf('register') != -1}"><a href="#/register"><h5>Register</h5></a></li>-->
-                <!--<li ng-class = "{'active' : $location.url().indexOf('login') != -1}"><a href="#/login_register"><h5>Login</h5></a></li>-->
-                <li><a a href="#/my_jobs"><h5>My Jobs</h5></a></li>
-                <li><a a href="#/profile"><h5>Username's Profile</h5></a></li>
-                <li><a><h5>Logout</h5></a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
             </ul>
+            <div class="container">
+                <ul class="nav navbar-nav navbar-inverse navbar-right nav-pills ">
+                    <li><a href="#/my_jobs"><h5>My Jobs</h5></a></li>
+                    <li><a href="#/profile"><h5>{{currentUser.firstname}}'s Profile</h5></a></li>
+                    <li><a><h5>Logout</h5></a></li>
+                </ul>
+            </div>
         </div>
-
     </div>
-
 </nav>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 remove-left-padding">
-            <div ng-include="'views/sidebar/sidebar.view.html' "></div>
-        </div>
+        <div class="col-sm-12 remove-left-padding">
+            <div class="col-sm-4 col-lg-3 remove-left-padding">
+                <div ng-include="'views/sidebar/sidebar.view.html' "></div>
+            </div>
 
-        <div class="col-sm-9">
-
-            <div class="container-fluid">
-
-                <div class="col-sm-9 main welcome-left-margin-index-project">
-                    <div class="form-group top-margin-project-home">
-                        <label class="control-label col-sm-6 listing-label-align" for="listings"><h3>My Jobs:</h3>
+            <div class="col-sm-8 col-lg-9">
+                <br><br><br><br>
+                <div class="main">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="listings"><h3>My Jobs:</h3>
                         </label>
 
-                        <div class="dropdown col-sm-3 align-dropdown">
+                        <div class="dropdown col-sm-3 right">
                             <button class="btn btn-default dropdown-toggle align-pincode-textbox" type="textbox"
                                     id="menu1" data-toggle="dropdown">Filter by status
                                 <span class="caret"></span></button>
@@ -60,16 +64,18 @@
                 </div>
 
 
-                <div class="col-sm-9 welcome-left-margin-index-project move-table-left">
+                <div class="col-sm-9 col-lg-12 remove-left-padding">
+                    <br>
+                    <br>
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th><h5 class="adjust-width">Job description</h5></th>
-                            <th><h5 class="adjust-width">Address</h5></th>
-                            <th><h5 class="adjust-width">Date</h5></th>
-                            <th><h5 class="adjust-width-status">Status</h5></th>
-                            <th><h5 class="adjust-width-status">Posted By</h5></th>
-                            <th><h5 class="adjust-width-status"></h5></th>
+                            <th><h5 class="col-sm-1">Job description</h5></th>
+                            <th><h5 class="col-sm-1">Address</h5></th>
+                            <th><h5 class="col-sm-1">Date</h5></th>
+                            <th><h5 class="col-sm-1">Status</h5></th>
+                            <th><h5 class="col-sm-1">Posted By</h5></th>
+                            <th><h5 class="col-sm-3"></h5></th>
                         </tr>
                         </thead>
                         <tbody>

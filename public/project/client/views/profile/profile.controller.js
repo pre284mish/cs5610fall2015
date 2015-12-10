@@ -12,6 +12,7 @@
                 UserService.findUserById($rootScope.currentUserId)
                     .then(function(user){
                         console.log("profile controller user profile"+JSON.stringify(user, null, 4))
+                        $rootScope.currentUser = user;
                         model.currentUser = user;
                         console.log("Email in profile controller:: "+model.currentUser.email);
                     })
