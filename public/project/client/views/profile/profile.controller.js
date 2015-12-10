@@ -22,7 +22,6 @@
             model.role = $rootScope.role;
 
             function update(){
-            alert("update");
                 console.log(model.currentUser.username);
                 console.log(model.currentUser._id);
                 UserService.updateUser(model.currentUser._id, model.currentUser)
