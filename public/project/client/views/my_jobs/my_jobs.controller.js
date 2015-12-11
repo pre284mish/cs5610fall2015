@@ -18,8 +18,8 @@
             console.log("get all jobs of userId:" + userId);
             JobService.findAllJobsByAcquiredBy(userId)
                 .then(function(jobs){
-                console.log("All the jobs:"+JSON.stringify(jobs, null, 4));
-                console.log("address::"+ JSON.stringify(jobs[0].address.street, null, 4));
+//                console.log("All the jobs:"+JSON.stringify(jobs, null, 4));
+//                console.log("address::"+ JSON.stringify(jobs[0].address.street, null, 4));
                 model.jobs = jobs;
             });
 
