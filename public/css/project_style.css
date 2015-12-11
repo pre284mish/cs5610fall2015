@@ -170,7 +170,8 @@
         padding-right: 20px;
     }
 
-    .center{
-      float: center;
-      }
+    .center {
+        margin: auto;
+        width: 40%;
+    }
 
