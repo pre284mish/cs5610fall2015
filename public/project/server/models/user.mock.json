@@ -1,8 +1,0 @@
-[
-  {"firstName": "Alice", "lastName": "Wonderland", "username": "alice", "password": "alice", "email": "alice@gmail.com"},
-  {"firstName": "Bob", "lastName": "Hope", "username": "bob", "password": "bob", "email": "bob@gmail.com"},
-  {"firstName": "Charlie", "lastName": "Brown", "username": "charlie", "password": "charlie", "email": "charlie@gmail.com"},
-  {"firstName": "Dan", "lastName": "Craig", "username": "dan", "password": "dan", "email": "dan@gmail.com"},
-  {"firstName": "Edward", "lastName": "Norton", "username": "ed", "password": "ed", "email": "ed@gmail.com"},
-  {"firstName": "pre", "lastName": "mish", "username": "pre", "password": "abc", "email": "abc@gmail.com"}
-]
